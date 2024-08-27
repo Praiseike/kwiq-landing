@@ -1,0 +1,5 @@
+.price-list-bg {
+  background-image: url('/assets/images/price-background.svg');
+  background-repeat: repeat;
+  background-size: cover;
+}
