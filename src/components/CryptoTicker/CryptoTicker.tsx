@@ -95,7 +95,7 @@ const CryptoTicker = () => {
                 <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize">Cryptocurrencies</th>
                 <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize">Last Price</th>
                 <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize">24hr% Change</th>
-                <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize">Last 24hours</th>
+                <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize sm:block hidden">Last 24hours</th>
               </tr>
             </thead>
             <tbody className="mb-4">
