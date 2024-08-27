@@ -86,7 +86,7 @@ const CryptoTicker = () => {
   }, []);
 
   return (
-    <div className="text-white p-4 mx-auto w-[70%]">
+    <div className="text-white p-4 mx-auto w-full md:w-[70%]">
       <div className="text-black w-full rounded-xl overflow-hidden">
         <div className="bg-white overflow-x-auto">
           <table className="min-w-full text-left">
@@ -111,7 +111,7 @@ const CryptoTicker = () => {
                   <td className={`px-6 py-3 ${coin && coin.percentage && (Number(coin?.percentage) > 0) ? 'text-green-500' : 'text-red-600'}`}>
                     {coin.percentage ? `${coin.percentage}%` : <Skeleton />}
                   </td>
-                  <td className="px-6 py-3">
+                  <td className="px-6 py-3 hidden sm:block ">
                     <div className="h-8 bg-gray-200 rounded-sm"></div>
                   </td>
                 </tr>
