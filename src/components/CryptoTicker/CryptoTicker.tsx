@@ -86,7 +86,7 @@ const CryptoTicker = () => {
   }, []);
 
   return (
-    <div className="text-white p-4 mx-auto w-full md:w-[70%]">
+    <div className="mx-auto w-full md:w-[70%]">
       <div className="text-black w-full rounded-xl overflow-hidden">
         <div className="bg-white overflow-x-auto">
           <table className="min-w-full text-left">
