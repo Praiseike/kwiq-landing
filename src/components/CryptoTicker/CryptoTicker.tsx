@@ -31,7 +31,7 @@ const coins: CoinProps[] = [
   { abbr: "btc", image: btc, name: "Bitcoin", symbol: "BINANCE:BTCUSDT" },
   { abbr: "ltc", image: ltc, name: "Litecoin", symbol: "BINANCE:LTCUSDT" },
   { abbr: "doge", image: doge, name: "Dogecoin", symbol: "BINANCE:DOGEUSDT" },
-  { abbr: "usdt", image: usdt, name: "Tether USDT", symbol: "BINANCE:USDT" },
+  { abbr: "usdt", image: usdt, name: "Tether USDT", symbol: "USDTUSD" },
   { abbr: "eth", image: eth, name: "Ethereum", symbol: "BINANCE:ETHUSDT" },
   { abbr: "bch", image: bch, name: "Bitcoin Cash", symbol: "BINANCE:BCHUSDT" },
   { abbr: "bnb", image: bnb, name: "BNB", symbol: "BINANCE:BNBUSDT" },
@@ -107,8 +107,8 @@ const TradingViewWidget = ({ symbol = 'BINANCE:BTCUSDT' }) => {
 
 
   return (
-    <div className="tradingview-widget-container" ref={containerRef}>
-      <div className="tradingview-widget-container__widget"></div>
+    <div className="tradingview-widget-container border-0" ref={containerRef}>
+      <div className="tradingview-widget-container__widget border-0"></div>
     </div>
   );
 };
@@ -175,8 +175,8 @@ const CryptoTicker = () => {
                     {coin.percentage !== (null || undefined) ? `${coin.percentage}%` : <Skeleton />}
                   </td>
                   <td className="px-6 py-3 hidden sm:block ">
-                    <div className="h-8 bg-gray-200 rounded-sm w-[12rem]" >
-                      <TradingViewWidget symbol={coin.symbol} />
+                    <div className="h-8  rounded-sm w-[12rem]" >
+                      {  <TradingViewWidget symbol={coin.symbol} />  }
                     </div>
                   </td>
                 </tr>
