@@ -5,7 +5,7 @@ const FAQItem = ({ question, answer }: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`${isOpen? "color-shadow" : "" } bg-white relative mb-4 border-2 rounded-[16px] `}>
+    <div className={`${isOpen? "color-shadow border-1" : "border-2" } bg-white relative mb-4  rounded-[16px] `}>
       <button
         className="flex justify-between items-center font-[600] w-full p-4"
         onClick={() => setIsOpen(!isOpen)}

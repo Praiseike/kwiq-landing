@@ -28,18 +28,18 @@ interface CoinProps {
 }
 
 const coins: CoinProps[] = [
-  { abbr: "btc", image: btc, name: "Bitcoin", symbol: "BINANCE:BTCUSDT" },
-  { abbr: "ltc", image: ltc, name: "Litecoin", symbol: "BINANCE:LTCUSDT" },
-  { abbr: "doge", image: doge, name: "Dogecoin", symbol: "BINANCE:DOGEUSDT" },
+  { abbr: "btc", image: btc, name: "Bitcoin", symbol: "BTCUSDT" },
+  { abbr: "ltc", image: ltc, name: "Litecoin", symbol: "LTCUSDT" },
+  { abbr: "doge", image: doge, name: "Dogecoin", symbol: "DOGEUSDT" },
   { abbr: "usdt", image: usdt, name: "Tether USDT", symbol: "USDTUSD" },
-  { abbr: "eth", image: eth, name: "Ethereum", symbol: "BINANCE:ETHUSDT" },
-  { abbr: "bch", image: bch, name: "Bitcoin Cash", symbol: "BINANCE:BCHUSDT" },
-  { abbr: "bnb", image: bnb, name: "BNB", symbol: "BINANCE:BNBUSDT" },
-  { abbr: "trx", image: trx, name: "TRON", symbol: "BINANCE:TRXUSDT" },
-  { abbr: "usdc", image: usdc, name: "USDC", symbol: "BINANCE:USDCUSDT" },
+  { abbr: "eth", image: eth, name: "Ethereum", symbol: "ETHUSDT" },
+  { abbr: "bch", image: bch, name: "Bitcoin Cash", symbol: "BCHUSDT" },
+  { abbr: "bnb", image: bnb, name: "BNB", symbol: "BNBUSDT" },
+  { abbr: "trx", image: trx, name: "TRON", symbol: "TRXUSDT" },
+  { abbr: "usdc", image: usdc, name: "USDC", symbol: "USDCUSDT" },
   { abbr: "busd", image: busd, name: "BUSD", symbol: "CRYPTO:BUSDUSD" },
-  { abbr: "sol", image: sol, name: "Solana", symbol: "BINANCE:SOLUSDT" },
-  { abbr: "aave", image: aave, name: "Avalanche", symbol: "BINANCE:AAVEUSDT" }
+  { abbr: "sol", image: sol, name: "Solana", symbol: "SOLUSDT" },
+  { abbr: "aave", image: aave, name: "Avalanche", symbol: "AAVEUSDT" }
 ]
 
 
@@ -149,7 +149,7 @@ const CryptoTicker = () => {
   }, []);
 
   return (
-    <div className="mx-auto w-full md:w-[70%]">
+    <div className="mx-auto w-full md:w-[60%]">
       <div className="text-black w-full rounded-t-xl pb-12 bg-white overflow-hidden">
         <div className="bg-white overflow-x-auto">
           <table className="min-w-full text-left">
@@ -158,7 +158,7 @@ const CryptoTicker = () => {
                 <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize">Cryptocurrencies</th>
                 <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize">Last Price</th>
                 <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize">24hr% Change</th>
-                <th className="px-6 py-6 text-[14px] font-medium text-gray-500 capitalize sm:block hidden">Last 24hours</th>
+                <th className="px-9 py-6 text-[14px] font-medium text-gray-500 capitalize sm:block hidden">Last 24hours</th>
               </tr>
             </thead>
             <tbody className="mb-4">
@@ -176,7 +176,7 @@ const CryptoTicker = () => {
                   </td>
                   <td className="px-6 py-3 hidden sm:block ">
                     <div className="h-8  rounded-sm w-[12rem]" >
-                      {  <TradingViewWidget symbol={coin.symbol} />  }
+                      {<TradingViewWidget symbol={coin.symbol} />}
                     </div>
                   </td>
                 </tr>
