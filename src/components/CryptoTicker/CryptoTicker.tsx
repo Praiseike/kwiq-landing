@@ -31,13 +31,13 @@ const coins: CoinProps[] = [
   { abbr: "btc", image: btc, name: "Bitcoin", symbol: "BINANCE:BTCUSDT" },
   { abbr: "ltc", image: ltc, name: "Litecoin", symbol: "BINANCE:LTCUSDT" },
   { abbr: "doge", image: doge, name: "Dogecoin", symbol: "BINANCE:DOGEUSDT" },
-  { abbr: "usdt", image: usdt, name: "Tether USDT", symbol: "BINANCE:USDTUSDT" },
+  { abbr: "usdt", image: usdt, name: "Tether USDT", symbol: "BINANCE:USDT" },
   { abbr: "eth", image: eth, name: "Ethereum", symbol: "BINANCE:ETHUSDT" },
   { abbr: "bch", image: bch, name: "Bitcoin Cash", symbol: "BINANCE:BCHUSDT" },
   { abbr: "bnb", image: bnb, name: "BNB", symbol: "BINANCE:BNBUSDT" },
   { abbr: "trx", image: trx, name: "TRON", symbol: "BINANCE:TRXUSDT" },
   { abbr: "usdc", image: usdc, name: "USDC", symbol: "BINANCE:USDCUSDT" },
-  { abbr: "busd", image: busd, name: "BUSD", symbol: "BINANCE:BUSDUSD" },
+  { abbr: "busd", image: busd, name: "BUSD", symbol: "CRYPTO:BUSDUSD" },
   { abbr: "sol", image: sol, name: "Solana", symbol: "BINANCE:SOLUSDT" },
   { abbr: "aave", image: aave, name: "Avalanche", symbol: "BINANCE:AAVEUSDT" }
 ]
