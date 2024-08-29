@@ -21,14 +21,32 @@ function Conversion() {
 }
 
 const currencies = [
-  { name: "NGN", rate: 1560 },
-  { name: "GCD", rate: 1560 },
-  { name: "GBP", rate: 1960 },
+  { 
+    name: "NGN", 
+    symbol: "₦", 
+    rate: 1615 // 1 USD ≈ 1615 NGN
+  },
+  { 
+    name: "USD", 
+    symbol: "$", 
+    rate: 1 // 1 USD = 1 USD
+  },
+  { 
+    name: "KES", 
+    symbol: "KSh", 
+    rate: 146 // 1 USD ≈ 146 KES
+  },
+  { 
+    name: "GHS", 
+    symbol: "₵", 
+    rate: 70 // 1 USD ≈ 70 GHS
+  }
 ]
 
 interface CurrencyProps {
   name: string;
   rate: number;
+  symbol: string;
 }
 
 const CryptoConverter = () => {
@@ -50,7 +68,7 @@ const CryptoConverter = () => {
 
   const handleConvert = () => {
     if (coin && coin.price && currency) {
-      const newPrice = coin.price  * currency?.rate;
+      const newPrice = coin.price * currency?.rate;
       setPrice(newPrice);
     }
   }
@@ -61,7 +79,7 @@ const CryptoConverter = () => {
     <div className="mx-auto bg-white radius-[24px] p-6 shadow-2xl">
       <div className="flex items-center mx-auto mb-4 bg-neutral-100 px-4 py-3 rounded-full w-fit">
         <img src="/assets/images/us-flag.svg" alt="US Flag" className="w-6 h-4 mr-2" />
-        <span className="font-semibold">$1 = ₦1,542</span>
+        <span className="font-semibold">$1 = {currency?.symbol}{currency?.rate}</span>
       </div>
 
       <h2 className="text-[26px] text-center font-[700] mb-4">Make a conversion</h2>
@@ -88,7 +106,10 @@ const CryptoConverter = () => {
         <Menu overflow="auto" viewScroll="auto" transition menuButton={
 
           <button className="flex items-center w-fit gap-x-1 mb-2">
-            <img src="/assets/icons/naira.svg" alt="" />
+            {/* <img src="/assets/icons/naira.svg" alt="" /> */}
+            <div className="w-7 h-7 font-[500] rounded-full bg-green-500 text-white flex items-center justify-center">
+              {currency?.symbol[0]}
+            </div>
             <span className="font-semibold">{currency?.name}</span>
             <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />

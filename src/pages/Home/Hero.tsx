@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+import { links } from "../../constants/links"
 
 export default function Hero() {
   return (
@@ -11,9 +13,11 @@ export default function Hero() {
             Welcome to KWIQ, the ultimate crypto exchange for all your digital asset needs. Effortlessly receive, buy, sell, store, swap and send over 20 cryptocurrencies. Enjoy secure, fast transactions and a user-friendly experience. Start trading smarter with KWIQ <br className="hidden lg:block" />now!
           </p>
           <div className="flex items-center gap-x-4 justify-center sm:justify-start">
+            <Link to={links.store.google}>
             <button>
               <img src="/assets/images/google-button.svg" className="h-12" />
             </button>
+            </Link>
             <button>
               <img src="/assets/images/apple-button.png" className="h-12" />
             </button>
