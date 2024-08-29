@@ -35,7 +35,7 @@ function Nav() {
             </button>
         }
       </div>
-      <div className={`absolute px-4 bg-white w-full pb-3 shadow-lg ease-in rounded-b duration-300 ${active ? "opacity-100 scale-100" : "opacity-0 pointer-events-none -translate-y-10 scale-[0.95]"}`}>
+      <div className={`absolute px-4 bg-white w-full pb-3 shadow-lg ease-in rounded-b duration-300 ${active ? "opacity-100 scale-100" : "opacity-0 pointer-events-none scale-[0.95]"}`}>
         <ul className="flex-col  flex space-y-4 mt-3 font-[500] w-full ">
           <li className="w-full">
             <a href="/" className={linkStyle}>Home</a>
@@ -49,11 +49,11 @@ function Nav() {
           <li className="w-full">
             <a href="/blog" className={linkStyle}>Blog</a>
           </li>
-          <li>
+          {/* <li>
             <button className="bg-blue-500 text-white w-full px-4 py-2.5 font-[500] rounded-md hover:bg-blue-600">
               Get Started →
             </button>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>
