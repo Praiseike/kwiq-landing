@@ -10,12 +10,12 @@ export default function Hero() {
           <p className="text-[15px] lg:text-[17px] font-[500] text-sub my-7 text-center sm:text-start">
             Welcome to KWIQ, the ultimate crypto exchange for all your digital asset needs. Effortlessly receive, buy, sell, store, swap and send over 20 cryptocurrencies. Enjoy secure, fast transactions and a user-friendly experience. Start trading smarter with KWIQ <br className="hidden lg:block" />now!
           </p>
-          <div className="flex items-center gap-x-4">
+          <div className="flex items-center gap-x-4 justify-center sm:justify-start">
             <button>
-              <img src="/assets/images/google-button.svg" />
+              <img src="/assets/images/google-button.svg" className="h-12" />
             </button>
             <button>
-              <img src="/assets/images/apple-button.png" />
+              <img src="/assets/images/apple-button.png" className="h-12" />
             </button>
           </div>
         </div>

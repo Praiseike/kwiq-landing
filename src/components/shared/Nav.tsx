@@ -1,30 +1,6 @@
 import { useState } from "react";
 
-function MobileNav() {
-  return (
-    <nav className="bg-white inset-0 absolute h-fit p-4 border">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold">
-          <img src="assets/icons/logo.png" alt="" className="" />
-        </div>
-        <button className="text-4xl font-[400]">&times;</button>
-      </div>
-      <div>
-        <ul className="flex-col flex space-y-4 mt-7 font-[500]">
-          <li><a href="/" className="px-4 py-2 rounded-full text-base hover:bg-neutral-200 duration-300 ">Home</a></li>
-          <li><a href="/about" className="px-4 py-2 rounded-full text-base hover:bg-neutral-200 duration-300 ">About Us</a></li>
-          <li><a href="/contact" className="px-4 py-2 rounded-full text-base hover:bg-neutral-200 duration-300 ">Contact</a></li>
-          <li><a href="/blog" className="px-4 py-2 rounded-full text-base hover:bg-neutral-200 duration-300 ">Blog</a></li>
-          <li>
-            <button className="bg-blue-500 text-white w-full px-4 py-2.5 font-[500] rounded-md hover:bg-blue-600">
-              Get Started →
-            </button>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
-}
+
 function Nav() {
   const [active, setActive] = useState(false);
 
