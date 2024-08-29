@@ -1,3 +1,4 @@
+import { BsFacebook, BsInstagram, BsLinkedin, BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
   const footerSections = [
@@ -43,13 +44,21 @@ const Footer = () => {
           ))}
         </div>
         <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center">
-          <p>© 2023 Kwiq by Kingcards. All Rights Reserved.</p>
+          <p>© 2023 Kwiq by <span className="text-primary">Kingcards</span>. All Rights Reserved.</p>
           <div className="flex mt-4 md:mt-0">
             {/* Replace with actual social media icons */}
-            <a href="#" className="mx-2">X</a>
-            <a href="#" className="mx-2">IG</a>
-            <a href="#" className="mx-2">In</a>
-            <a href="#" className="mx-2">Fb</a>
+            <a href="#" className="mx-2">
+              <BsTwitterX/>
+            </a>
+            <a href="#" className="mx-2">
+              <BsInstagram/>
+            </a>
+            <a href="#" className="mx-2">
+              <BsLinkedin/>
+            </a>
+            <a href="#" className="mx-2">
+              <BsFacebook/>
+            </a>
           </div>
         </div>
       </div>

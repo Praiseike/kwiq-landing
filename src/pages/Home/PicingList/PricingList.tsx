@@ -15,7 +15,7 @@ export default function PriceList() {
           <p className="text-[16px] font-[500] text-[#EBEFF5] mb-3">Deposit, buy, sell, swap & send 50+ crypto seamlessly</p>
         </div>
         <div className="w-full">
-          <CryptoTicker />
+          <CryptoTicker/>
         </div>
       </div>
     </div>

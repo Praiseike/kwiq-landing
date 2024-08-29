@@ -2,60 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import axios from 'axios';
-import btc from '../../assets/coins/image 10.svg';
-import ltc from '../../assets/coins/image 20.svg';
-import doge from '../../assets/coins/image 21.svg';
-import usdt from '../../assets/coins/image 11.svg';
-import eth from '../../assets/coins/image 12.svg';
-import bch from '../../assets/coins/image 13.svg';
-import bnb from '../../assets/coins/image 14.svg';
-import trx from '../../assets/coins/image 15.svg';
-import usdc from '../../assets/coins/image 16.svg';
-import busd from '../../assets/coins/image 17.svg';
-import sol from '../../assets/coins/image 18.svg';
-import aave from '../../assets/coins/image 19.svg';
-
-
-
-interface CoinProps {
-  abbr: string;
-  name: string;
-  price?: number;
-  image: string;
-  symbol?: string;
-  percentage?: number;
-}
-
-const coins: CoinProps[] = [
-  { abbr: "btc", image: btc, name: "Bitcoin", symbol: "BTCUSDT" },
-  { abbr: "ltc", image: ltc, name: "Litecoin", symbol: "LTCUSDT" },
-  { abbr: "doge", image: doge, name: "Dogecoin", symbol: "DOGEUSDT" },
-  { abbr: "usdt", image: usdt, name: "Tether USDT", symbol: "USDTUSD" },
-  { abbr: "eth", image: eth, name: "Ethereum", symbol: "ETHUSDT" },
-  { abbr: "bch", image: bch, name: "Bitcoin Cash", symbol: "BCHUSDT" },
-  { abbr: "bnb", image: bnb, name: "BNB", symbol: "BNBUSDT" },
-  { abbr: "trx", image: trx, name: "TRON", symbol: "TRXUSDT" },
-  { abbr: "usdc", image: usdc, name: "USDC", symbol: "USDCUSDT" },
-  { abbr: "busd", image: busd, name: "BUSD", symbol: "CRYPTO:BUSDUSD" },
-  { abbr: "sol", image: sol, name: "Solana", symbol: "SOLUSDT" },
-  { abbr: "aave", image: aave, name: "Avalanche", symbol: "AAVEUSDT" }
-]
-
-
-const transformData = (coinData: any) => {
-  if (coinData) {
-    const { open, last } = coinData;
-    return {
-      price: Number(last),
-      percentage: Number(((last - open) / last) * 100).toFixed(2),
-    };
-  }
-  return { price: 1, percentage: 0.00 };
-};
-
-
-
+import useCryptoData from '../../hooks/useCryptoData';
 
 
 const TradingViewWidget = ({ symbol = 'BINANCE:BTCUSDT' }) => {
@@ -115,38 +62,7 @@ const TradingViewWidget = ({ symbol = 'BINANCE:BTCUSDT' }) => {
 
 
 const CryptoTicker = () => {
-  const [processed, setProcessed] = useState<CoinProps[]>(coins);
-
-  const fetchPrices = async () => {
-    try {
-      const response = await axios.get('https://test-api.kwiq.app/api/v1/quidax/markets/tickers/');
-      return response.data.data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return null;
-    }
-  };
-
-  const updatePrices = async () => {
-    const data = await fetchPrices();
-    if (data) {
-      const prices: any = coins.map((coin) => {
-        const key = `${coin.abbr}usdt`;
-        const priceData = data[key] ? data[key]?.ticker : null;
-        return { ...coin, ...transformData(priceData) };
-      });
-      setProcessed(prices);
-    }
-  };
-
-  useEffect(() => {
-    updatePrices();
-    const interval = setInterval(() => {
-      updatePrices();
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const processed = useCryptoData();
 
   return (
     <div className="mx-auto w-full md:w-[60%]">

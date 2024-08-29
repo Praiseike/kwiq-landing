@@ -7,7 +7,7 @@ const FAQItem = ({ question, answer }: any) => {
   return (
     <div className={`${isOpen? "color-shadow border-1" : "border-2" } bg-white relative mb-4  rounded-[16px] `}>
       <button
-        className="flex justify-between items-center font-[600] w-full p-4"
+        className="flex justify-between items-center text-start font-[600] w-full p-4"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="font-[600] text-[19px] text-gray-900">{question}</span>
