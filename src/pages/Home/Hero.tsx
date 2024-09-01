@@ -3,7 +3,7 @@ import { links } from "../../constants/links"
 
 export default function Hero() {
   return (
-    <div className="sm:container px-4 h-[75vh] lg:h-[100vh] mx-auto flex items-end mt-24">
+    <div className="sm:container px-4 h-[80vh] sm:h-[100vh] mx-auto flex items-end mt-24">
       <div className=" flex justify-between w-full sm:pl-12 sm:ml-3 flex-col sm:flex-row gap-y-10">
         <div className="sm:w-[520px]">
           <p className="font-[700] leading-[40px] sm:leading-[66px] text-[#0B5CBA] text-center text-[34px] sm:text-[40px] lg:text-[53px] sm:text-start">
@@ -14,13 +14,15 @@ export default function Hero() {
           </p>
           <div className="flex items-center gap-x-4 justify-center sm:justify-start">
             <Link to={links.store.google}>
-            <button>
-              <img src="/assets/images/google-button.svg" className="h-12" />
-            </button>
+              <button>
+                <img src="/assets/images/google-button.svg" className="h-12" />
+              </button>
             </Link>
-            <button>
-              <img src="/assets/images/apple-button.png" className="h-12" />
-            </button>
+            <Link to="#">
+              <button>
+                <img src="/assets/images/apple-button.png" className="h-12" />
+              </button>
+            </Link>
           </div>
         </div>
         <div className="w-fit ">

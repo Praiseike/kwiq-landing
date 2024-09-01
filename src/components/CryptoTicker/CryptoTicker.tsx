@@ -87,7 +87,7 @@ const CryptoTicker = () => {
                   <td className="px-6 py-3 text-gray-600">
                     {coin.price ? `$${Number(coin.price).toLocaleString()}` : <Skeleton />}
                   </td>
-                  <td className={`px-6 py-3 ${coin && coin.percentage && (Number(coin?.percentage) > 0) ? 'text-green-500' : 'text-red-600'}`}>
+                  <td className={`px-6 py-3 ${coin && coin.percentage && (Number(coin?.percentage) >= 0) ? 'text-green-500' : 'text-red-600'}`}>
                     {coin.percentage !== (null || undefined) ? `${coin.percentage}%` : <Skeleton />}
                   </td>
                   <td className="px-6 py-3 hidden sm:block ">

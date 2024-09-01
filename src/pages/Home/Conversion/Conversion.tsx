@@ -41,7 +41,7 @@ const currencies = [
     symbol: "₵", 
     rate: 70 // 1 USD ≈ 70 GHS
   }
-]
+];
 
 interface CurrencyProps {
   name: string;
@@ -50,45 +50,39 @@ interface CurrencyProps {
 }
 
 const CryptoConverter = () => {
-
   const coins = useCryptoData();
 
-  const [coin, setCoin] = useState(coins[0]);
+  const [coin, setCoin] = useState<CoinProps | null>(coins[0]);
   const [currency, setCurrency] = useState<CurrencyProps>(currencies[0]);
-  const [coinAmount, setCoinAmount] = useState<any>();
-  const [price, setPrice] = useState(0);
+  const [coinAmount, setCoinAmount] = useState<number | null>(null);
+  const [price, setPrice] = useState<number | null>(null);
 
-  const handleAmountChange = (e: any) => {
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    if (value == '0' || value == '')
-      setCoinAmount(null);
-    else
-      setCoinAmount(Number(value.replace(/\D/g, '')))
-  }
+    const numericValue = value ? Number(value.replace(/\D/g, '')) : 0;
+    setCoinAmount(numericValue);
+  };
 
   const handleConvert = () => {
     if (coin && coin.price && currency) {
-      const newPrice = coin.price * currency?.rate;
+      const newPrice = (coinAmount ?? 0) * coin.price * currency.rate;
       setPrice(newPrice);
     }
-  }
-
-
+  };
 
   return (
-    <div className="mx-auto bg-white radius-[24px] p-6 shadow-2xl">
+    <div className="mx-auto bg-white rounded-[24px] p-6 shadow-2xl">
       <div className="flex items-center mx-auto mb-4 bg-neutral-100 px-4 py-3 rounded-full w-fit">
         <img src="/assets/images/us-flag.svg" alt="US Flag" className="w-6 h-4 mr-2" />
-        <span className="font-semibold">$1 = {currency?.symbol}{currency?.rate}</span>
+        <span className="font-semibold">$1 = {currency.symbol}{currency.rate}</span>
       </div>
 
       <h2 className="text-[26px] text-center font-[700] mb-4">Make a conversion</h2>
 
       <div className="mb-4">
         <Menu overflow="auto" viewScroll="auto" menuButton={
-
           <button className="flex items-center w-fit gap-x-1 mb-2">
-            <img src={coin?.image} alt="" />
+            <img src={coin?.image} alt={coin?.name} />
             <span className="font-semibold uppercase">{coin?.abbr}</span>
             <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -99,28 +93,38 @@ const CryptoConverter = () => {
             <MenuItem onClick={() => setCoin(coin)} key={index}>{coin.name}</MenuItem>
           ))}
         </Menu>
-        <input type="number" value={coinAmount} onChange={handleAmountChange} className="w-full p-2 outline-non py-2.5 bg-[#F2F0F0] px-2 mb-4 rounded-md " placeholder="" />
+        <input
+          type="number"
+          value={coinAmount ?? ''}
+          onChange={handleAmountChange}
+          className="w-full p-2 bg-[#F2F0F0] rounded-md"
+          placeholder="Enter amount"
+        />
       </div>
 
       <div className="mb-6">
         <Menu overflow="auto" viewScroll="auto" transition menuButton={
-
           <button className="flex items-center w-fit gap-x-1 mb-2">
-            {/* <img src="/assets/icons/naira.svg" alt="" /> */}
             <div className="w-7 h-7 font-[500] rounded-full bg-green-500 text-white flex items-center justify-center">
-              {currency?.symbol[0]}
+              {currency.symbol[0]}
             </div>
-            <span className="font-semibold">{currency?.name}</span>
+            <span className="font-semibold">{currency.name}</span>
             <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-        } >
+        }>
           {currencies.map((currency: CurrencyProps, index: number) => (
-            <MenuItem onClick={() => setCurrency(currency)} key={index}>{currency?.name}</MenuItem>
+            <MenuItem onClick={() => setCurrency(currency)} key={index}>{currency.name}</MenuItem>
           ))}
         </Menu>
-        <input type="number" value={price} className="w-full p-2 outline-non py-2.5 bg-[#F2F0F0] px-2 mb-4 rounded-md " placeholder="" />
+        <input
+          type="number"
+          value={price ?? ''}
+          readOnly
+          className="w-full p-2 bg-[#F2F0F0] rounded-md"
+          placeholder="Converted price"
+        />
       </div>
 
       <button onClick={handleConvert} className="w-full bg-[#4693EB] font-[600] text-white py-3 rounded-md hover:bg-blue-600 transition duration-300">
