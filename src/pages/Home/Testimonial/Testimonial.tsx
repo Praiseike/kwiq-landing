@@ -60,7 +60,7 @@ const TestimonialCard = ({ testimonial }: any) => (
 const TestimonialCarousel = () => {
 
   return (
-    <div className="py-5 px-4 sm:px-20 overflow-hidden sm:overflow-x-auto no-scrollbar relative">
+    <div className="py-5 sm:px-20 overflow-hidden sm:overflow-x-auto no-scrollbar relative">
       <div className="relative">
         <div className="flex flex-col sm:flex-row sm:w-[130vw] gap-y-6 gap-x-8">
           {testimonials.map((testimonial, index) => (
