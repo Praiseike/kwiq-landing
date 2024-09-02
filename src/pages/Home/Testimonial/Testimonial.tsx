@@ -6,14 +6,14 @@ const testimonials = [
     text: "I'm very happy with the way the customer service lady helped me with my issue. KWIQ is the best place to trade in Nigeria, they always come through for me.",
     name: "Tega I",
     type: "Playstore Review",
-    image: "/assets/images/testimonials/image.png",
+    image: "/assets/images/testimonials/image 1.png",
   },
   {
     rating: 5,
     text: "I checked my balance and I saw that I got a bonus, that's why I'm dropping this review. Keep up the good work guys.",
-    name: "Benjams M",
+    name: "Danjuma. M",
     type: "Playstore Review",
-    image: "/assets/images/testimonials/image 1.png",
+    image: "/assets/images/testimonials/image.png",
   },
   {
     rating: 4,
@@ -24,19 +24,11 @@ const testimonials = [
   },
   {
     rating: 4,
-    text: "I had been looking for where to sell BNB, and a friend referred me to KWIQ. I had the coins for about a month and I traded it so easily. Now I do free P2P for them cos they deserve it!",
-    name: "Olumide T",
+    text: "Since I started trading on KWIQ, I haven’t used another exchange. I’m proud to say I’m their most loyal customer. Thanks for the bonuses and efficiency. Nice work 👍🏽",
+    name: "Emeka O",
     type: "Playstore Review",
-    image: null,
-  },
-  {
-    rating: 4,
-    text: "I had been looking for where to sell BNB, and a friend referred me to KWIQ. I had the coins for about a month and I traded it so easily. Now I do free P2P for them cos they deserve it!",
-    name: "Olumide T",
-    type: "Playstore Review",
-    image: null,
-  },
-  // Add more testimonials as needed
+    image: "/assets/images/testimonials/image-2.png",
+  }
 ];
 
 
@@ -69,7 +61,7 @@ const TestimonialCarousel = () => {
   return (
     <div className="py-5 px-4 sm:px-20 overflow-hidden sm:overflow-x-auto no-scrollbar relative">
       <div className="relative">
-        <div className="flex flex-col sm:flex-row sm:w-[140vw] gap-y-6 gap-x-8">
+        <div className="flex flex-col sm:flex-row sm:w-[130vw] gap-y-6 gap-x-8">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} testimonial={testimonial} />
           ))}

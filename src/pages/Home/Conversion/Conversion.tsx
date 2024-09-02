@@ -54,18 +54,18 @@ const CryptoConverter = () => {
 
   const [coin, setCoin] = useState<CoinProps | null>(coins[0]);
   const [currency, setCurrency] = useState<CurrencyProps>(currencies[0]);
-  const [coinAmount, setCoinAmount] = useState<number | null>(null);
+  const [coinAmount, setCoinAmount] = useState<string>('');
   const [price, setPrice] = useState<number | null>(null);
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    const numericValue = value ? Number(value.replace(/\D/g, '')) : 0;
+    const numericValue = value.replace(/\D/g, '') ;
     setCoinAmount(numericValue);
   };
 
   const handleConvert = () => {
     if (coin && coin.price && currency) {
-      const newPrice = (coinAmount ?? 0) * coin.price * currency.rate;
+      const newPrice = Number(coinAmount) * coin.price * currency.rate;
       setPrice(newPrice);
     }
   };
@@ -97,8 +97,7 @@ const CryptoConverter = () => {
           type="number"
           value={coinAmount ?? ''}
           onChange={handleAmountChange}
-          className="w-full p-2 bg-[#F2F0F0] rounded-md"
-          placeholder="Enter amount"
+          className="w-full p-2 bg-gray-100 rounded-md"
         />
       </div>
 
@@ -122,8 +121,7 @@ const CryptoConverter = () => {
           type="number"
           value={price ?? ''}
           readOnly
-          className="w-full p-2 bg-[#F2F0F0] rounded-md"
-          placeholder="Converted price"
+          className="w-full p-2 bg-gray-100 rounded-md"
         />
       </div>
 

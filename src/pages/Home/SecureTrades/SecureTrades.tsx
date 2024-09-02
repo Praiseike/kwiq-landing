@@ -9,7 +9,7 @@ function SecureTrades() {
           title={<span>Secure and <br />automated trades</span>}
           content="All our processes are fully automated which totally eliminates any possibility of slow transactions. Our platform is designed with world class security encryption that is routinely tested to ensure safety of users funds and data."
         />
-        <div className="flex items-center sm:jusify-start justify-center gap-x-4 mt-5">
+        <div className="flex items-center sm:justify-start justify-center gap-x-4 mt-5">
           <button className="px-7 rounded-lg py-2.5 bg-native font-[600] text-white">
             Download
           </button>
