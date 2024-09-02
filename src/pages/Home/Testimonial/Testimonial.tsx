@@ -38,15 +38,16 @@ const TestimonialCard = ({ testimonial }: any) => (
   <div className="bg-white sm:w-[400px] flex flex-col justify-between shadow-lg  h-[330px] p-6 rounded-[24px] border">
     <div className="flex text-yellow-400 mb-2">
       {[...Array(5)].map((_, i) => (
-        <svg key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        <svg className="mr-2" width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 0.90332C11.2668 0.90332 11.5134 1.045 11.6478 1.27542L14.989 7.00317L21.1834 8.56541C21.4402 8.63016 21.6437 8.82547 21.719 9.0793C21.7943 9.33313 21.7302 9.60787 21.5504 9.80212L17.318 14.3737L18.9122 21.4893C18.9735 21.7629 18.8771 22.0479 18.6622 22.228C18.4473 22.4082 18.1499 22.4534 17.8912 22.3453L11 19.4661L4.10881 22.3453C3.85009 22.4534 3.55269 22.4082 3.33782 22.228C3.12295 22.0479 3.02652 21.7629 3.08782 21.4893L4.68203 14.3737L0.449659 9.80212C0.269789 9.60787 0.205679 9.33313 0.280999 9.0793C0.356309 8.82547 0.559879 8.63016 0.816609 8.56541L7.01099 7.00317L10.3522 1.27542C10.4866 1.045 10.7333 0.90332 11 0.90332Z" fill="#FF881B" />
         </svg>
+
       ))}
     </div>
     <p className="text-gray-800 text-[17px] mb-4">"{testimonial.text}"</p>
     <div className="flex items-center">
       <div className="w-10 h-10 bg-gray-300 rounded-full mr-3 overflow-hidden">
-       { testimonial.image && <img src={testimonial.image} alt=""/> }
+        {testimonial.image && <img src={testimonial.image} alt="" />}
       </div>
       <div>
         <p className="font-semibold">{testimonial.name}</p>

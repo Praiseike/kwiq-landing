@@ -11,6 +11,8 @@ import HowItWorks from './HowItWorks/HowItWorks';
 import SubscriptionSection from './Subscriptions/Subscription';
 import ContactSection from './Contact/Contact';
 import CryptoPromoSection from './Promotion/Promotion';
+import { Link } from 'react-router-dom';
+import { links } from '../../constants/links';
 
 
 
@@ -71,14 +73,20 @@ function PassiveIncome() {
 
 function Partners() {
   return (
-    <div className="flex justify-center flex-col items-center  px-4 py-20">
+    <div className="flex justify-center flex-col items-center  px-4 py-10 sm:py-20">
       <p className="text-[26px] sm:text-[38px] font-[700] leading=[46px] my-4 text-[#202939]">
         KWIQ is <span className="text-native border-b border-native rounded-lg inline-block">featured</span> on
       </p>
-      <div className='flex items-center py-10 flex-wrap justify-center gap-x-6'>
-        <img src="/assets/images/guardian.png" alt="" className="" />
-        <img src="/assets/images/vanguard.png" alt="" className="" />
-        <img src="/assets/images/tribune.png" alt="" className="" />
+      <div className='flex items-center py-10 flex-wrap justify-center gap-y-6 gap-x-6'>
+        <Link target="_blank" to={links.partners.guardian}>
+          <img src="/assets/images/guardian.png" alt="" className="" />
+        </Link>
+        <Link target="_blank" to={links.partners.vanguard}>
+          <img src="/assets/images/vanguard.png" alt="" className="" />
+        </Link>
+        <Link target="_blank" to={links.partners.tribune}>
+          <img src="/assets/images/tribune.png" alt="" className="" />
+        </Link>
 
       </div>
     </div>
@@ -90,7 +98,10 @@ function Partners() {
 
 function Demo() {
   return (
-    <img src="/assets/images/video.png" />
+    <>
+      <img className="hidden sm:block" src="/assets/images/video.png" />
+      <img className="sm:hidden" src="/assets/images/demo-mobile.png" />
+    </>
   );
 }
 
@@ -114,9 +125,9 @@ export default function Home() {
       <HowItWorks />
       <Demo />
       <FAQSection />
-      <ContactSection/>
+      <ContactSection />
       <SubscriptionSection />
-      <CryptoPromoSection/>
+      <CryptoPromoSection />
     </div>
   )
 }

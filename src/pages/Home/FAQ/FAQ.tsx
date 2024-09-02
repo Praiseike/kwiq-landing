@@ -51,8 +51,8 @@ const FAQSection = () => {
           <FAQItem key={index} question={faq.question} answer={faq.answer} />
         ))}
       </div>
-      <div className="mt-8">
-        <button className="bg-native font-[600] text-white px-6 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+      <div className="mt-8 w-full">
+        <button className="bg-native font-[600] text-white px-6 py-2.5 rounded-lg hover:bg-blue-600 transition-colors duration-300 w-full sm:w-fit">
           Load More
         </button>
       </div>

@@ -11,9 +11,9 @@ const SubscriptionSection = () => {
   };
 
   return (
-    <div className='px-4 sm:px-36 py-10 mx-auto '>
-      <div className="bg-primary rounded-[24px] px-3 sm:px-0 py-16 mx-auto ">
-        <h2 className="text-white text-2xl sm:text-[43px] font-bold text-center mb-4">
+    <div className='px-4 bg-primary sm:bg-white sm:px-36 py-10 mx-auto '>
+      <div className="bg-primary rounded-[24px] sm:px-0 sm:py-16 sm:mx-auto ">
+        <h2 className="text-white text-nowrap sm:text-wrap text-[25px] sm:text-[43px] font-bold text-center mb-4">
           Subscribe to get the latest
         </h2>
         <p className="text-white text-[15px] sm:text-[24px] text-center mb-8">

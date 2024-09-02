@@ -19,7 +19,8 @@ const HowItWorks = () => {
 
   return (
     <div className="">
-      <img src="/assets/images/full-divider.png" alt="" />
+      <img className="hidden sm:block" src="/assets/images/full-divider.png" alt="" />
+      <img className="sm:hidden" src="/assets/images/full-divider-mobile.png" alt="" />
       <div className="bg-[#E0EFFF] py-16 px-4 sm:px-20 ">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">How it works</h2>
 
@@ -36,15 +37,15 @@ const HowItWorks = () => {
         </div>
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h3>
-          <p className="text-gray-600">
-            Don't hesitate to reach out to us if you have trouble<br />
+          <p className="text-gray-600 ext-[500]">
+            Don't hesitate to reach out to us if you have trouble<br className="hidden sm:block"/>
             downloading the app or signing up
           </p>
-          <div className="flex items-center gap-x-4 mt-5 mx-auto w-fit">
-            <button className="px-7 rounded-lg py-2.5 bg-native font-[600] text-white">
+          <div className="flex items-center gap-x-4 mt-5 mx-auto w-full sm:w-fit">
+            <button className="px-7 rounded-lg py-2.5 w-full sm:w-fit bg-native font-[600] text-white">
               Contact Us
             </button>
-            <button className="px-8 rounded-lg py-2.5 bg-white border-2 border-gray-300 font-[600] text-gray-800">
+            <button className="px-8 rounded-lg py-2.5 w-full sm:w-fit bg-white border-2 border-gray-300 font-[600] text-gray-800">
               Live chat
             </button>
           </div>
