@@ -23,9 +23,9 @@ function Nav() {
           <li><a href="/blog" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300 ">Blog</a></li>
         </ul>
         <Link to={links.store.google}>
-        <button className="bg-blue-500 sm:block hidden text-white px-4 py-2.5 font-[500] rounded-md hover:bg-blue-600">
-          Get Started →
-        </button>
+          <button className="bg-blue-500 lg:block hidden text-white px-4 py-2.5 font-[500] rounded-md hover:bg-blue-600">
+            Get Started →
+          </button>
         </Link>
         {
           active ?
