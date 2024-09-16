@@ -2,7 +2,7 @@ import HeaderText from "../../../components/HeaderText/HeaderText";
 import { Menu, MenuItem } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/zoom.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useCryptoData, { CoinProps } from "../../../hooks/useCryptoData";
 
 function Conversion() {
@@ -57,6 +57,10 @@ const CryptoConverter = () => {
   const [coinAmount, setCoinAmount] = useState<string>('');
   const [price, setPrice] = useState<number | null>(null);
 
+  useEffect(() => {
+    setCoin(coins[0]);
+  },[coins])
+
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const numericValue = value.replace(/\D/g, '') ;
@@ -64,6 +68,7 @@ const CryptoConverter = () => {
   };
 
   const handleConvert = () => {
+    // console.log(coin,)
     if (coin && coin.price && currency) {
       const newPrice = Number(coinAmount) * coin.price * currency.rate;
       setPrice(newPrice);

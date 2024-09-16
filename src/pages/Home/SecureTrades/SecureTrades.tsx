@@ -2,7 +2,7 @@ import HeaderText from "../../../components/HeaderText/HeaderText";
 
 function SecureTrades() {
   return (
-    <div className="flex flex-col sm:flex-row justify-between gap-y-3 items-center px-4 sm:px-32 py-10 sm:py-20">
+    <div id="about" className="flex flex-col sm:flex-row justify-between gap-y-3 items-center px-4 sm:px-32 py-10 sm:py-20">
       <div>
         <HeaderText
           tag="OUR TRADES ARE SECURE 🔒"

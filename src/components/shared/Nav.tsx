@@ -18,9 +18,9 @@ function Nav() {
 
         <ul className="hidden md:flex space-x-4 font-[500]">
           <li><a href="/" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300 ">Home</a></li>
-          <li><a href="/about" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300 ">About Us</a></li>
-          <li><a href="/contact" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300">Contact</a></li>
-          <li><a href="/blog" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300 ">Blog</a></li>
+          <li><a href="/#about" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300 ">About Us</a></li>
+          <li><a href="/#contact" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300">Contact</a></li>
+          <li><a target="_blank" href="https://kwiq.app/blog/" className="px-4 py-2 rounded-full text-sm hover:bg-neutral-200 duration-300 ">Blog</a></li>
         </ul>
         <Link to={links.store.google}>
           <button className="bg-blue-500 lg:block hidden text-white px-4 py-2.5 font-[500] rounded-md hover:bg-blue-600">
@@ -44,13 +44,13 @@ function Nav() {
             <a href="/" className={linkStyle}>Home</a>
           </li>
           <li className="w-full">
-            <a href="/about" className={linkStyle}>About Us</a>
+            <a href="/#about" className={linkStyle}>About Us</a>
           </li>
           <li className="w-full">
-            <a href="/contact" className={linkStyle}>Contact</a>
+            <a href="/#contact" className={linkStyle}>Contact</a>
           </li>
           <li className="w-full">
-            <a href="/blog" className={linkStyle}>Blog</a>
+            <a target="_blank" href="https://kwiq.app/blog/" className={linkStyle}>Blog</a>
           </li>
           {/* <li>
             <button className="bg-blue-500 text-white w-full px-4 py-2.5 font-[500] rounded-md hover:bg-blue-600">

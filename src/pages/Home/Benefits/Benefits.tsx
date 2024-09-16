@@ -33,8 +33,8 @@ function Benefits() {
       <div className="mt-10">
         <div className="flex flex-col sm:flex-row gap-x-5 gap-y-9">
           {
-            benefits.map((benefit: any) => {
-              return <BenefitCard {...benefit} />
+            benefits.map((benefit: any, index: number) => {
+              return <BenefitCard key={index} {...benefit} />
             })
           }
         </div>

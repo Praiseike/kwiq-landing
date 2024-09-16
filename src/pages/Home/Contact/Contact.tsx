@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 const ContactSection = () => {
   return (
-    <div className="relative bg-primary sm:h-auto flex flex-col sm:flex-row justify-between">
+    <div id="contact" className="relative bg-primary sm:h-auto flex flex-col sm:flex-row justify-between">
       <p></p>
       <img className="hidden sm:block" src="/assets/images/contact-bg.png" alt="" />
       <div className="sm:absolute sm:inset-0 w-full sm:h-full flex flex-col sm:flex-row gap-y-12 text-white py-12 sm:py-20 sm:px-32 px-4 justify-between items-center ">
