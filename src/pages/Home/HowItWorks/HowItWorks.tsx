@@ -18,7 +18,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="">
+    <div className="" data-aos="fade-up">
       <img className="hidden sm:block" src="/assets/images/full-divider.png" alt="" />
       <img className="sm:hidden" src="/assets/images/full-divider-mobile.png" alt="" />
       <div className="bg-[#E0EFFF] py-16 px-4 sm:px-20 ">

@@ -13,8 +13,6 @@ export interface CoinProps {
 }
 
 
-
-
 const transformData = (coinData: any) => {
   if (coinData) {
     const { open, last } = coinData;

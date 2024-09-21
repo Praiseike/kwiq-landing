@@ -3,10 +3,10 @@ import { links } from "../../constants/links"
 
 export default function Hero() {
   return (
-    <div className="sm:container px-4 h-[80vh] sm:h-[100vh] mx-auto flex items-end mt-24">
+    <div className="sm:container px-4 lg:h-[100vh] mx-auto flex items-end mt-24">
       <div className=" flex justify-between w-full sm:pl-12 sm:ml-3 flex-col sm:flex-row gap-y-10">
         <div className="sm:w-[520px]">
-          <p className="font-[700] leading-[40px] sm:leading-[66px] text-[#0B5CBA] text-center text-[34px] sm:text-[40px] lg:text-[53px] sm:text-start">
+          <p data-aos="fade-up" className="font-[700] leading-[40px] sm:leading-[66px] text-[#0B5CBA] text-center text-[34px] sm:text-[40px] lg:text-[53px] sm:text-start">
             Trade over 20<br className="hidden lg:block" /> Crypto Instantly in<br className="hidden lg:block" /> Nigeria
           </p>
           <p className="text-[15px] lg:text-[17px] font-[500] text-sub my-7 text-center sm:text-start">

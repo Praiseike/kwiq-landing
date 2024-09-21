@@ -2,7 +2,7 @@ import HeaderText from "../../../components/HeaderText/HeaderText";
 
 function BenefitCard({ icon, title, content }: any) {
   return (
-    <div className="w-full bg-white sm:w-[350px] overflow-hidden rounded-[24px]">
+    <div data-aos="fade-up" className="w-full bg-white sm:w-[350px] overflow-hidden rounded-[24px]">
       <div className="px-6 py-5 h-[250px] ">
         <img src={icon} alt="" />
         <div className='mt-4'>

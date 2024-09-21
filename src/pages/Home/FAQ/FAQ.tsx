@@ -45,7 +45,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div data-aos="fade-up" className="max-w-3xl mx-auto px-4 py-8">
       <div className="gap-y-4">
         {faqs.map((faq, index) => (
           <FAQItem key={index} question={faq.question} answer={faq.answer} />

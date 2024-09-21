@@ -1,7 +1,7 @@
 import HeaderText from "../../../components/HeaderText/HeaderText";
-import { Menu, MenuItem } from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
-import '@szhsin/react-menu/dist/transitions/zoom.css';
+import { Menu, MenuItem } from "@szhsin/react-menu";
+import "@szhsin/react-menu/dist/index.css";
+import "@szhsin/react-menu/dist/transitions/zoom.css";
 import { useEffect, useState } from "react";
 import useCryptoData, { CoinProps } from "../../../hooks/useCryptoData";
 
@@ -21,26 +21,26 @@ function Conversion() {
 }
 
 const currencies = [
-  { 
-    name: "NGN", 
-    symbol: "₦", 
-    rate: 1615 // 1 USD ≈ 1615 NGN
+  {
+    name: "NGN",
+    symbol: "₦",
+    rate: 1615, // 1 USD ≈ 1615 NGN
   },
-  { 
-    name: "USD", 
-    symbol: "$", 
-    rate: 1 // 1 USD = 1 USD
+  {
+    name: "USD",
+    symbol: "$",
+    rate: 1, // 1 USD = 1 USD
   },
-  { 
-    name: "KES", 
-    symbol: "KSh", 
-    rate: 146 // 1 USD ≈ 146 KES
+  {
+    name: "KES",
+    symbol: "KSh",
+    rate: 146, // 1 USD ≈ 146 KES
   },
-  { 
-    name: "GHS", 
-    symbol: "₵", 
-    rate: 70 // 1 USD ≈ 70 GHS
-  }
+  {
+    name: "GHS",
+    symbol: "₵",
+    rate: 70, // 1 USD ≈ 70 GHS
+  },
 ];
 
 interface CurrencyProps {
@@ -52,23 +52,23 @@ interface CurrencyProps {
 const CryptoConverter = () => {
   const coins = useCryptoData();
 
-  const [coin, setCoin] = useState<CoinProps | null>(coins[0]);
+  const [coin, setCoin] = useState<CoinProps | null>(null);
   const [currency, setCurrency] = useState<CurrencyProps>(currencies[0]);
-  const [coinAmount, setCoinAmount] = useState<string>('');
+  const [coinAmount, setCoinAmount] = useState<string>("");
   const [price, setPrice] = useState<number | null>(null);
 
   useEffect(() => {
-    setCoin(coins[0]);
-  },[coins])
+    if (!coin?.price) setCoin(coins[0]);
+  }, [coins]);
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    const numericValue = value.replace(/\D/g, '') ;
+    const numericValue = value.replace(/\D/g, "");
     setCoinAmount(numericValue);
   };
 
   const handleConvert = () => {
-    // console.log(coin,)
+    console.log(coin);
     if (coin && coin.price && currency) {
       const newPrice = Number(coinAmount) * coin.price * currency.rate;
       setPrice(newPrice);
@@ -78,59 +78,107 @@ const CryptoConverter = () => {
   return (
     <div className="mx-auto bg-white rounded-[24px] p-6 shadow-2xl">
       <div className="flex items-center mx-auto mb-4 bg-neutral-100 px-4 py-3 rounded-full w-fit">
-        <img src="/assets/images/us-flag.svg" alt="US Flag" className="w-6 h-4 mr-2" />
-        <span className="font-semibold">$1 = {currency.symbol}{currency.rate}</span>
+        <img
+          src="/assets/images/us-flag.svg"
+          alt="US Flag"
+          className="w-6 h-4 mr-2"
+        />
+        <span className="font-semibold">
+          $1 = {currency.symbol}
+          {currency.rate}
+        </span>
       </div>
 
-      <h2 className="text-[26px] text-center font-[700] mb-4">Make a conversion</h2>
+      <h2 className="text-[26px] text-center font-[700] mb-4">
+        Make a conversion
+      </h2>
 
       <div className="mb-4">
-        <Menu overflow="auto" viewScroll="auto" menuButton={
-          <button className="flex items-center w-fit gap-x-1 mb-2">
-            <img src={coin?.image} alt={coin?.name} />
-            <span className="font-semibold uppercase">{coin?.abbr}</span>
-            <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-        } transition>
+        <Menu
+          overflow="auto"
+          viewScroll="auto"
+          menuButton={
+            <button className="flex items-center w-fit gap-x-1 mb-2">
+              <img src={coin?.image} alt={coin?.name} />
+              <span className="font-semibold uppercase">{coin?.abbr}</span>
+              <svg
+                className="w-4 h-4 ml-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          }
+          transition
+        >
           {coins.map((coin: CoinProps, index: number) => (
-            <MenuItem onClick={() => setCoin(coin)} key={index}>{coin.name}</MenuItem>
+            <MenuItem onClick={() => setCoin(coin)} key={index}>
+              {coin.name}
+            </MenuItem>
           ))}
         </Menu>
         <input
           type="number"
-          value={coinAmount ?? ''}
+          value={coinAmount ?? ""}
           onChange={handleAmountChange}
           className="w-full p-2 bg-gray-100 rounded-md"
         />
       </div>
 
       <div className="mb-6">
-        <Menu overflow="auto" viewScroll="auto" transition menuButton={
-          <button className="flex items-center w-fit gap-x-1 mb-2">
-            <div className="w-7 h-7 font-[500] rounded-full bg-green-500 text-white flex items-center justify-center">
-              {currency.symbol[0]}
-            </div>
-            <span className="font-semibold">{currency.name}</span>
-            <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-        }>
+        <Menu
+          overflow="auto"
+          viewScroll="auto"
+          transition
+          menuButton={
+            <button className="flex items-center w-fit gap-x-1 mb-2">
+              <div className="w-7 h-7 font-[500] rounded-full bg-green-500 text-white flex items-center justify-center">
+                {currency.symbol[0]}
+              </div>
+              <span className="font-semibold">{currency.name}</span>
+              <svg
+                className="w-4 h-4 ml-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          }
+        >
           {currencies.map((currency: CurrencyProps, index: number) => (
-            <MenuItem onClick={() => setCurrency(currency)} key={index}>{currency.name}</MenuItem>
+            <MenuItem onClick={() => setCurrency(currency)} key={index}>
+              {currency.name}
+            </MenuItem>
           ))}
         </Menu>
         <input
           type="number"
-          value={price ?? ''}
+          value={price ?? ""}
           readOnly
           className="w-full p-2 bg-gray-100 rounded-md"
         />
       </div>
 
-      <button onClick={handleConvert} className="w-full bg-[#4693EB] font-[600] text-white py-3 rounded-md hover:bg-blue-600 transition duration-300">
+      <button
+        onClick={handleConvert}
+        className="w-full bg-[#4693EB] font-[600] text-white py-3 rounded-md hover:bg-blue-600 transition duration-300"
+      >
         Convert your Crypto
       </button>
     </div>
