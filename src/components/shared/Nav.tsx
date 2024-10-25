@@ -58,7 +58,7 @@ function Nav() {
         </Link>
         {active ? (
           <button
-            className="md:hidden text-4xl font-[400]"
+            className="md:hidden h-fit text-4xl font-[400]"
             onClick={() => setActive(false)}
           >
             &times;
@@ -83,7 +83,7 @@ function Nav() {
         )}
       </div>
       <div
-        className={`absolute px-4 bg-white w-full pb-3 shadow-lg ease-in rounded-b duration-300 ${
+        className={`absolute px-4 bg-white z-[100] w-full pb-3 shadow-lg ease-in rounded-b duration-300 ${
           active
             ? "opacity-100 scale-100"
             : "opacity-0 pointer-events-none scale-[0.95]"
