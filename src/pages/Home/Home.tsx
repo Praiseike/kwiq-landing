@@ -60,7 +60,7 @@ function PassiveIncome() {
       </div>
       <div className="">
         <HeaderText
-          title={<span className='text-nowrap'>Earn passive income on KWIQ</span>}
+          title={<span className=''>Earn passive income on KWIQ</span>}
           className="sm:w-[520px] "
           content="Start earning cash as soon as you sign up once you complete tasks. Not just that, earn 0.5% of transactions your friends make on KWIQ for life, just because you referred them!"
         />

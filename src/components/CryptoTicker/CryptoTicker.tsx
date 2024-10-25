@@ -79,7 +79,7 @@ const CryptoTicker = () => {
             </thead>
             <tbody className="mb-4">
               {processed.map((coin, index) => (
-                <tr key={index} className="bg-white font-[500] border-gray-200">
+                <tr key={index} className="bg-transparent font-[500] border-gray-200">
                   <td className="px-6 py-3 flex items-center space-x-2">
                     <img src={coin.image} alt={coin.name} className="crypto-icon w-8 h-8 rounded-full" />
                     <span>{coin.name || <Skeleton />}</span>

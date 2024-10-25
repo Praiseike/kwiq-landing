@@ -1,3 +1,4 @@
+import { links } from '../../../constants/links';
 import './style.css';
 
 const CryptoPromoSection = () => {
@@ -13,12 +14,13 @@ const CryptoPromoSection = () => {
               Download the KWIQ app today and start selling your <br className="sm:block hidden" />crypto in less than 5 minutes
             </p>
             <div className="flex space-x-4">
-              <button>
+              
+              <a href={links.store.google} className="inline-block">
                 <img src="/assets/images/google-button.svg" alt="Get it on Google Play" className="h-12" />
-              </button>
-              <button>
+              </a>
+              <a href={links.store.google}  className="inline-block">
                 <img src="/assets/images/apple-button.png" alt="Download on the App Store" className="h-12" />
-              </button>
+              </a>
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center order-1 sm:order-2">
