@@ -1,0 +1,3538 @@
+{
+	"info": {
+		"_postman_id": "d12725d1-61d6-4096-a802-a112f2b8c4d1",
+		"name": "Quidax",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19836937",
+		"_collection_link": "https://kwiq00.postman.co/workspace/Kwiq-Workspace~7bf9a8b7-391d-4c0a-a2eb-588a7c2f0169/collection/19836937-d12725d1-61d6-4096-a802-a112f2b8c4d1?action=share&source=collection_link&creator=19836937"
+	},
+	"item": [
+		{
+			"name": "Dev",
+			"item": [
+				{
+					"name": "Quidax",
+					"item": [
+						{
+							"name": "Markets",
+							"item": [
+								{
+									"name": "Get Market Ticker",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ _.url }}/quidax/markets/tickers/eth",
+											"host": [
+												"{{ _.url }}"
+											],
+											"path": [
+												"quidax",
+												"markets",
+												"tickers",
+												"eth"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Market Tickers",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{ _.url }}/quidax/markets/tickers",
+											"host": [
+												"{{ _.url }}"
+											],
+											"path": [
+												"quidax",
+												"markets",
+												"tickers"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Fetch User Wallet Addresses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BIqMhjqchVtVLxdew4b9xuUXmhjx56uu5GZ12p1L",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							}
+						],
+						"url": {
+							"raw": "{{ _.url }}/user/wallets/usdt/addresses?provider=quidax",
+							"host": [
+								"{{ _.url }}"
+							],
+							"path": [
+								"user",
+								"wallets",
+								"usdt",
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "provider",
+									"value": "quidax"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch User Wallet Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BIqMhjqchVtVLxdew4b9xuUXmhjx56uu5GZ12p1L",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							}
+						],
+						"url": {
+							"raw": "{{ _.url }}/user/wallets/usdt/addresses/erc20?provider=quidax",
+							"host": [
+								"{{ _.url }}"
+							],
+							"path": [
+								"user",
+								"wallets",
+								"usdt",
+								"addresses",
+								"erc20"
+							],
+							"query": [
+								{
+									"key": "provider",
+									"value": "quidax"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Webhook Wallet Generated Webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							},
+							{
+								"key": "quidax-signature",
+								"value": "jgbhgbdgbjrh=tjgnrtjngjr",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event\": \"wallet.address.generated\",\n  \"data\":   {\n      \"id\": \"ow7p3ptl\",\n      \"reference\": null,\n      \"currency\": \"usdt\",\n      \"address\": \"TVSsfTwJxb8YeGiGKbkA4heffeYCu3QzuW\",\n      \"network\": \"trc20\",\n      \"user\": {\n        \"id\": \"7zwlmiuv\",\n        \"sn\": \"QDX6FZLURYL\",\n        \"email\": \"iamstarcode1+kwiq@gmail.com\",\n        \"reference\": null,\n        \"first_name\": null,\n        \"last_name\": null,\n        \"display_name\": null,\n        \"created_at\": \"2024-06-19T10:05:04.000Z\",\n        \"updated_at\": \"2024-06-19T10:05:05.000Z\"\n      },\n      \"destination_tag\": null,\n      \"total_payments\": null,\n      \"created_at\": \"2024-06-19T10:24:35.000Z\",\n      \"updated_at\": \"2024-06-19T10:24:36.000Z\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/webhook/quidax/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"webhook",
+								"quidax",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Webhook Deposit Confirm Webhook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							},
+							{
+								"key": "quidax-signature",
+								"value": "jgbhgbdgbjrh=tjgnrtjngjr"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"event\":\"deposit.transaction.confirmation\",\n   \"data\":{\n      \"id\":\"xofy3d261\",\n      \"type\":\"coin_address\",\n      \"currency\":\"trx\",\n      \"amount\":\"3.0\",\n      \"fee\":\"0.0\",\n      \"txid\":\"c5aee052782c0f9419067b96c7a019ff21a7155878865c85e73ca76085736bab\",\n      \"status\":\"submitted\",\n      \"reason\":null,\n      \"created_at\":\"2024-04-02T13:16:17.000Z\",\n      \"done_at\":null,\n      \"wallet\":{\n         \"id\":\"rk46e2kb\",\n         \"currency\":\"trx\",\n         \"balance\":\"0.0\",\n         \"locked\":\"0.0\",\n         \"staked\":\"0.0\",\n         \"user\":{\n            \"id\":\"7zwlmiuv\",\n            \"sn\":\"QDXTEJ7YRMF\",\n            \"email\":\"test@gmail.com\",\n            \"reference\":null,\n            \"first_name\":\"test\",\n            \"last_name\":\"user\",\n            \"display_name\":null,\n            \"created_at\":\"2024-04-02T13:09:40.000Z\",\n            \"updated_at\":\"2024-04-02T13:09:41.000Z\"\n         },\n         \"converted_balance\":\"0.0\",\n         \"reference_currency\":\"ngn\",\n         \"is_crypto\":true,\n         \"created_at\":\"2024-04-02T13:09:41.000Z\",\n         \"updated_at\":\"2024-04-02T13:09:41.000Z\",\n         \"deposit_address\":\"TKipGdUmft8UsHQsmLi8eaAX63RxxQt3cN\",\n         \"destination_tag\":null\n      },\n      \"user\":{\n         \"id\":\"7zwlmiuv\",\n         \"sn\":\"QDXTEJ7YRMF\",\n         \"email\":\"test@gmail.com\",\n         \"reference\":null,\n         \"first_name\":\"test\",\n         \"last_name\":\"user\",\n         \"display_name\":null,\n         \"created_at\":\"2024-04-02T13:09:40.000Z\",\n         \"updated_at\":\"2024-04-02T13:09:41.000Z\"\n      },\n      \"payment_transaction\":{\n         \"status\":\"unconfirmed\",\n         \"confirmations\":1,\n         \"required_confirmations\":1\n      },\n      \"payment_address\":{\n         \"id\":\"mzlhmte6\",\n         \"reference\":null,\n         \"currency\":\"trx\",\n         \"address\":\"TKipGdUmft8UsHQsmLi8eaAX63RxxQt3cN\",\n         \"network\":\"trc20\",\n         \"user\":{\n            \"id\":\"u2d7imxe\",\n            \"sn\":\"QDXTEJ7YRMF\",\n            \"email\":\"test@activeskyway.com\",\n            \"reference\":null,\n            \"first_name\":\"test\",\n            \"last_name\":\"user\",\n            \"display_name\":null,\n            \"created_at\":\"2024-04-02T13:09:40.000Z\",\n            \"updated_at\":\"2024-04-02T13:09:41.000Z\"\n         },\n         \"destination_tag\":null,\n         \"total_payments\":null,\n         \"created_at\":\"2024-04-02T13:12:11.000Z\",\n         \"updated_at\":\"2024-04-02T13:12:12.000Z\"\n      }\n   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ _.url }}/webhook/quidax",
+							"host": [
+								"{{ _.url }}"
+							],
+							"path": [
+								"webhook",
+								"quidax"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Webhook Withdraw Succesful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							},
+							{
+								"key": "quidax-signature",
+								"value": "jgbhgbdgbjrh=tjgnrtjngjr"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event\": \"withdraw.successful\",\n  \"data\": {\n    \"id\": \"y23dxeyz\",\n    \"reference\": null,\n    \"type\": \"internal\",\n    \"currency\": \"ngn\",\n    \"amount\": \"1.0\",\n    \"fee\": \"0.0\",\n    \"total\": \"1.0\",\n    \"txid\": \"2112190829919858\",\n    \"transaction_note\": \"Stay safe\",\n    \"narration\": \"Payout\",\n    \"status\": \"Done\",\n    \"reason\": null,\n    \"created_at\": \"2021-12-19T08:29:10.000Z\",\n    \"done_at\": null,\n    \"recipient\": {\n      \"type\": \"internal\",\n      \"details\": {\n        \"user_id\": \"23azi7bj\"\n      }\n    },\n    \"wallet\": {\n      \"id\": \"dvs6ada6\",\n      \"currency\": \"ngn\",\n      \"balance\": \"10.187\",\n      \"locked\": \"0.0\",\n      \"staked\": \"0.0\",\n      \"converted_balance\": \"10.18699999999999999986424664594645\",\n      \"reference_currency\": \"ngn\",\n      \"is_crypto\": false,\n      \"created_at\": \"2021-12-15T20:19:52.000Z\",\n      \"updated_at\": \"2021-12-19T08:29:14.000Z\"\n    },\n    \"user\": {\n      \"id\": \"7zwlmiuv\",\n    \"sn\": \"QDX6FZLURYL\",\n    \"email\": \"iamstarcode1+kwiq@gmail.com\",\n    \"reference\": null,\n    \"first_name\": \"test\",\n    \"last_name\": \"tester\",\n    \"display_name\": null,\n    \"created_at\": \"2024-06-19T10:05:04.000Z\",\n    \"updated_at\": \"2024-06-26T07:15:35.974Z\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ _.url }}/webhook/quidax",
+							"host": [
+								"{{ _.url }}"
+							],
+							"path": [
+								"webhook",
+								"quidax"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Webhook Deposit Successful ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							},
+							{
+								"key": "quidax-signature",
+								"value": "jgbhgbdgbjrh=tjgnrtjngjr"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"event\":\"deposit.successful\",\n   \"data\":{\n      \"id\":\"xofy3d261\",\n      \"type\":\"coin_address\",\n      \"currency\":\"trx\",\n      \"amount\":\"3.0\",\n      \"fee\":\"0.0\",\n      \"txid\":\"c5aee052782c0f9419067b96c7a019ff21a7155878865c85e73ca76085736bab\",\n      \"status\":\"submitted\",\n      \"reason\":null,\n      \"created_at\":\"2024-04-02T13:16:17.000Z\",\n      \"done_at\":null,\n      \"wallet\":{\n      \t \"id\":\"rk46e2kb\",\n         \"currency\":\"trx\",\n         \"balance\":\"3.0\",\n         \"locked\":\"0.0\",\n         \"staked\":\"0.0\",\n         \"user\":{\n            \"id\":\"7zwlmiuv\",\n            \"sn\":\"QDXTEJ7YRMF\",\n            \"email\":\"test@gmail.com\",\n            \"reference\":null,\n            \"first_name\":\"test\",\n            \"last_name\":\"user\",\n            \"display_name\":null,\n            \"created_at\":\"2024-04-02T13:09:40.000Z\",\n            \"updated_at\":\"2024-04-02T13:09:41.000Z\"\n         },\n         \"converted_balance\":\"0.0\",\n         \"reference_currency\":\"ngn\",\n         \"is_crypto\":true,\n         \"created_at\":\"2024-04-02T13:09:41.000Z\",\n         \"updated_at\":\"2024-04-02T13:09:41.000Z\",\n         \"deposit_address\":\"TKipGdUmft8UsHQsmLi8eaAX63RxxQt3cN\",\n         \"destination_tag\":null\n      },\n      \"user\":{\n         \"id\":\"7zwlmiuv\",\n         \"sn\":\"QDXTEJ7YRMF\",\n         \"email\":\"test@gmail.com\",\n         \"reference\":null,\n         \"first_name\":\"test\",\n         \"last_name\":\"user\",\n         \"display_name\":null,\n         \"created_at\":\"2024-04-02T13:09:40.000Z\",\n         \"updated_at\":\"2024-04-02T13:09:41.000Z\"\n      },\n      \"payment_transaction\":{\n         \"status\":\"unconfirmed\",\n         \"confirmations\":1,\n         \"required_confirmations\":1\n      },\n      \"payment_address\":{\n         \"id\":\"mzlhmte6\",\n         \"reference\":null,\n         \"currency\":\"trx\",\n         \"address\":\"TKipGdUmft8UsHQsmLi8eaAX63RxxQt3cN\",\n         \"network\":\"trc20\",\n         \"user\":{\n            \"id\":\"u2d7imxe\",\n            \"sn\":\"QDXTEJ7YRMF\",\n            \"email\":\"test@activeskyway.com\",\n            \"reference\":null,\n            \"first_name\":\"test\",\n            \"last_name\":\"user\",\n            \"display_name\":null,\n            \"created_at\":\"2024-04-02T13:09:40.000Z\",\n            \"updated_at\":\"2024-04-02T13:09:41.000Z\"\n         },\n         \"destination_tag\":null,\n         \"total_payments\":null,\n         \"created_at\":\"2024-04-02T13:12:11.000Z\",\n         \"updated_at\":\"2024-04-02T13:12:12.000Z\"\n      }\n   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ _.url }}/webhook/quidax",
+							"host": [
+								"{{ _.url }}"
+							],
+							"path": [
+								"webhook",
+								"quidax"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Address",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BIqMhjqchVtVLxdew4b9xuUXmhjx56uu5GZ12p1L",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							}
+						],
+						"url": {
+							"raw": "{{ _.url }}/user/generate-address/usdt/bep20/?provider=quidax",
+							"host": [
+								"{{ _.url }}"
+							],
+							"path": [
+								"user",
+								"generate-address",
+								"usdt",
+								"bep20",
+								""
+							],
+							"query": [
+								{
+									"key": "provider",
+									"value": "quidax"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Cryptomus",
+					"item": [
+						{
+							"name": "Wallets",
+							"item": [
+								{
+									"name": "Generate Payment Address Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}"
+											},
+											{
+												"key": "Authorization",
+												"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/cryptomus/wallets/tron/addresses/eth",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"cryptomus",
+												"wallets",
+												"tron",
+												"addresses",
+												"eth"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User Payment Address",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/cryptomus/wallets/usdt/address/bsc",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"cryptomus",
+												"wallets",
+												"usdt",
+												"address",
+												"bsc"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User Payment Addresses",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/cryptomus/wallets/usdt/addresses",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"cryptomus",
+												"wallets",
+												"usdt",
+												"addresses"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Webhook",
+							"item": [
+								{
+									"name": "TestWebook",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"type\": \"payment\",\r\n    \"uuid\": \"62f88b36-a9d5-4fa6-aa26-e040c3dbf26d\",\r\n    \"order_id\": \"97a75bf8eda5cca41ba9d2e104840fcd\",\r\n    \"amount\": \"3.00000000\",\r\n    \"payment_amount\": \"3.00000000\",\r\n    \"payment_amount_usd\": \"0.23\",\r\n    \"merchant_amount\": \"2.94000000\",\r\n    \"commission\": \"0.06000000\",\r\n    \"is_final\": true,\r\n    \"status\": \"paid\",\r\n    \"from\": \"THgEWubVc8tPKXLJ4VZ5zbiiAK7AgqSeGH\",\r\n    \"wallet_address_uuid\": null,\r\n    \"network\": \"tron\",\r\n    \"currency\": \"TRX\",\r\n    \"payer_currency\": \"TRX\",\r\n    \"additional_data\": null,\r\n    \"convert\": {\r\n        \"to_currency\": \"USDT\",\r\n        \"commission\": null,\r\n        \"rate\": \"0.07700000\",\r\n        \"amount\": \"0.22638000\"\r\n    },\r\n    \"txid\": \"6f0d9c8374db57cac0d806251473de754f361c83a03cd805f74aa9da3193486b\",\r\n    \"sign\": \"a76c0d77f3e8e1a419b138af04ab600a\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/webhook/cryptomus",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"webhook",
+												"cryptomus"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Test Wallet",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "merchant",
+												"value": "bbdf5cac-f8b2-4839-95ba-85e3e91d11f7",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"uuid\": \"56d1d081-bd1e-4f04-a656-92d1f54c5f09\",\r\n\t\"currency\": \"TRX\",\r\n\t\"url_callback\": \"https://test-api.kwiq.app/api/v1/webhook/cryptomus\",\r\n\t\"network\": \"tron\",\r\n\t\"status\": \"process\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/webhook/cryptomus/test",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"webhook",
+												"cryptomus",
+												"test"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get Currency Rates",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/cryptomus/USDT/list",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cryptomus",
+										"USDT",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Services",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/cryptomus/services",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cryptomus",
+										"services"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Quidax",
+					"item": [
+						{
+							"name": "Markets",
+							"item": [
+								{
+									"name": "Get Market Ticker",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "U3ls_MkVpynShHUi4I38e",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/markets/tickers/trx",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"markets",
+												"tickers",
+												"trx"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Market Tickers",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+												"type": "text"
+											},
+											{
+												"key": "x-id-key",
+												"value": "U3ls_MkVpynShHUi4I38e",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/markets/tickers",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"markets",
+												"tickers"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Get Market Tickers",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+														"type": "text"
+													},
+													{
+														"key": "x-id-key",
+														"value": "TII9QTMI82kkdkTWoLP1K",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{test_url}}/quidax/markets/tickers",
+													"host": [
+														"{{test_url}}"
+													],
+													"path": [
+														"quidax",
+														"markets",
+														"tickers"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Access-Control-Allow-Credentials",
+													"value": "true"
+												},
+												{
+													"key": "Access-Control-Expose-Headers",
+													"value": "x-id-key"
+												},
+												{
+													"key": "Content-Encoding",
+													"value": "gzip"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Cross-Origin-Opener-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Cross-Origin-Resource-Policy",
+													"value": "same-origin"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 15 Jul 2024 09:58:26 GMT"
+												},
+												{
+													"key": "Etag",
+													"value": "W/\"3d7a-yOUOQ24wbrqpCZFIiR1DdsNT2dE\""
+												},
+												{
+													"key": "Origin-Agent-Cluster",
+													"value": "?1"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "no-referrer"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=15552000; includeSubDomains"
+												},
+												{
+													"key": "Vary",
+													"value": "Accept-Encoding"
+												},
+												{
+													"key": "Vary",
+													"value": "Origin"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-Dns-Prefetch-Control",
+													"value": "off"
+												},
+												{
+													"key": "X-Download-Options",
+													"value": "noopen"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Permitted-Cross-Domain-Policies",
+													"value": "none"
+												},
+												{
+													"key": "X-Ratelimit-Limit",
+													"value": "600"
+												},
+												{
+													"key": "X-Ratelimit-Remaining",
+													"value": "593"
+												},
+												{
+													"key": "X-Ratelimit-Reset",
+													"value": "1721038051"
+												},
+												{
+													"key": "X-Xss-Protection",
+													"value": "0"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Successful\",\n    \"data\": {\n        \"usdtusd\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.9997\",\n                \"sell\": \"1.0003\",\n                \"low\": \"0.9997\",\n                \"high\": \"1.0003\",\n                \"open\": \"1.0003\",\n                \"last\": \"0.9997\",\n                \"vol\": \"6171.9279\"\n            }\n        },\n        \"qdxusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.02765\",\n                \"sell\": \"0.02785\",\n                \"low\": \"0.02674\",\n                \"high\": \"0.02772\",\n                \"open\": \"0.02771\",\n                \"last\": \"0.02772\",\n                \"vol\": \"11997.751\"\n            }\n        },\n        \"btcusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"62451.47\",\n                \"sell\": \"62620.0\",\n                \"low\": \"54600.03\",\n                \"high\": \"63605.57\",\n                \"open\": \"60165.55\",\n                \"last\": \"62503.79\",\n                \"vol\": \"575.8976576868423574\"\n            }\n        },\n        \"btcngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"97402999.0\",\n                \"sell\": \"98399000.0\",\n                \"low\": \"88700000.0\",\n                \"high\": \"98848143.0\",\n                \"open\": \"92926595.0\",\n                \"last\": \"97402999.0\",\n                \"vol\": \"3.3718168924518832\"\n            }\n        },\n        \"ethngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"5189437.0\",\n                \"sell\": \"5250100.0\",\n                \"low\": \"4780919.0\",\n                \"high\": \"5250100.0\",\n                \"open\": \"4961572.0\",\n                \"last\": \"5250100.0\",\n                \"vol\": \"5.0346068486565978\"\n            }\n        },\n        \"qdxngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"43.12\",\n                \"sell\": \"44.98\",\n                \"low\": \"41.75\",\n                \"high\": \"44.98\",\n                \"open\": \"42.05\",\n                \"last\": \"44.98\",\n                \"vol\": \"4283.364\"\n            }\n        },\n        \"xrpngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"822.08\",\n                \"sell\": \"833.56\",\n                \"low\": \"730.0\",\n                \"high\": \"832.15\",\n                \"open\": \"829.79\",\n                \"last\": \"821.07\",\n                \"vol\": \"2522.7446855567747459\"\n            }\n        },\n        \"dashngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"41143.0\",\n                \"sell\": \"43253.0\",\n                \"low\": \"39007.0\",\n                \"high\": \"44517.0\",\n                \"open\": \"39277.0\",\n                \"last\": \"44517.0\",\n                \"vol\": \"2.82032727\"\n            }\n        },\n        \"ltcngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"108983.0\",\n                \"sell\": \"110521.0\",\n                \"low\": \"107289.0\",\n                \"high\": \"110996.0\",\n                \"open\": \"109698.0\",\n                \"last\": \"110400.0\",\n                \"vol\": \"44.3190251498502793\"\n            }\n        },\n        \"usdtngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"1561.01\",\n                \"sell\": \"1561.85\",\n                \"low\": \"1550.0\",\n                \"high\": \"1566.97\",\n                \"open\": \"1558.26\",\n                \"last\": \"1561.01\",\n                \"vol\": \"41810.1330933093484739\"\n            }\n        },\n        \"btcghs\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"974423.15\",\n                \"sell\": \"0.0\",\n                \"low\": \"895410.65\",\n                \"high\": \"895410.65\",\n                \"open\": \"895410.65\",\n                \"last\": \"895410.65\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"usdtghs\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"15.53\",\n                \"sell\": \"16.02\",\n                \"low\": \"15.53\",\n                \"high\": \"15.53\",\n                \"open\": \"15.53\",\n                \"last\": \"15.53\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"trxngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"214.17\",\n                \"sell\": \"216.59\",\n                \"low\": \"211.01\",\n                \"high\": \"217.53\",\n                \"open\": \"216.56\",\n                \"last\": \"214.17\",\n                \"vol\": \"16168.3314291276747676\"\n            }\n        },\n        \"dogeusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.11709\",\n                \"sell\": \"0.11876\",\n                \"low\": \"0.11044\",\n                \"high\": \"0.12034\",\n                \"open\": \"0.11427\",\n                \"last\": \"0.11875\",\n                \"vol\": \"68070.8854398520403044\"\n            }\n        },\n        \"bnbusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"556.7\",\n                \"sell\": \"565.1\",\n                \"low\": \"518.1\",\n                \"high\": \"566.1\",\n                \"open\": \"538.0\",\n                \"last\": \"559.3\",\n                \"vol\": \"33.0069714922117849\"\n            }\n        },\n        \"cnhcngn\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"126.35\",\n                \"sell\": \"126.66\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"126.66\",\n                \"last\": \"126.66\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"maticusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.533\",\n                \"sell\": \"0.5412\",\n                \"low\": \"0.5148\",\n                \"high\": \"0.5471\",\n                \"open\": \"0.5315\",\n                \"last\": \"0.5349\",\n                \"vol\": \"128975.22043138\"\n            }\n        },\n        \"usdcusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.992\",\n                \"sell\": \"0.9925\",\n                \"low\": \"0.9921\",\n                \"high\": \"0.9998\",\n                \"open\": \"0.9924\",\n                \"last\": \"0.9922\",\n                \"vol\": \"9242.7298\"\n            }\n        },\n        \"aaveusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"104.76\",\n                \"sell\": \"106.32\",\n                \"low\": \"99.0\",\n                \"high\": \"107.24\",\n                \"open\": \"101.65\",\n                \"last\": \"105.71\",\n                \"vol\": \"356.467\"\n            }\n        },\n        \"shibusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00001779\",\n                \"sell\": \"0.00001805\",\n                \"low\": \"0.00001668\",\n                \"high\": \"0.000019\",\n                \"open\": \"0.00001734\",\n                \"last\": \"0.00001786\",\n                \"vol\": \"910615209.0141883831512273\"\n            }\n        },\n        \"dotusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"6.321\",\n                \"sell\": \"6.417\",\n                \"low\": \"6.153\",\n                \"high\": \"6.566\",\n                \"open\": \"6.273\",\n                \"last\": \"6.329\",\n                \"vol\": \"3143.37\"\n            }\n        },\n        \"linkusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"13.744\",\n                \"sell\": \"13.953\",\n                \"low\": \"12.91\",\n                \"high\": \"13.952\",\n                \"open\": \"13.213\",\n                \"last\": \"13.847\",\n                \"vol\": \"685.31\"\n            }\n        },\n        \"cakeusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"1.967\",\n                \"sell\": \"1.995\",\n                \"low\": \"1.865\",\n                \"high\": \"2.013\",\n                \"open\": \"1.92\",\n                \"last\": \"1.991\",\n                \"vol\": \"4095.6239071487614553\"\n            }\n        },\n        \"xlmusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.1027\",\n                \"sell\": \"0.1039\",\n                \"low\": \"0.1026\",\n                \"high\": \"0.107\",\n                \"open\": \"0.1032\",\n                \"last\": \"0.1029\",\n                \"vol\": \"23880.36135958\"\n            }\n        },\n        \"xrpusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.5268\",\n                \"sell\": \"0.5345\",\n                \"low\": \"0.5186\",\n                \"high\": \"0.5375\",\n                \"open\": \"0.5257\",\n                \"last\": \"0.5321\",\n                \"vol\": \"7279.214733353846715\"\n            }\n        },\n        \"ltcusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"69.76\",\n                \"sell\": \"70.82\",\n                \"low\": \"68.83\",\n                \"high\": \"71.41\",\n                \"open\": \"70.07\",\n                \"last\": \"70.61\",\n                \"vol\": \"298.5979027198266039\"\n            }\n        },\n        \"ethusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"3315.33\",\n                \"sell\": \"3381.55\",\n                \"low\": \"3054.91\",\n                \"high\": \"3412.78\",\n                \"open\": \"3213.43\",\n                \"last\": \"3364.52\",\n                \"vol\": \"7686.8199631319613354\"\n            }\n        },\n        \"trxusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.13676\",\n                \"sell\": \"0.1384\",\n                \"low\": \"0.12505\",\n                \"high\": \"0.13914\",\n                \"open\": \"0.13873\",\n                \"last\": \"0.13787\",\n                \"vol\": \"162910.842573252\"\n            }\n        },\n        \"axsusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"5.72\",\n                \"sell\": \"5.79\",\n                \"low\": \"5.48\",\n                \"high\": \"5.83\",\n                \"open\": \"5.58\",\n                \"last\": \"5.75\",\n                \"vol\": \"532.13\"\n            }\n        },\n        \"wsgusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"afenusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"blsusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"dashusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"26.77\",\n                \"sell\": \"27.33\",\n                \"low\": \"25.32\",\n                \"high\": \"28.13\",\n                \"open\": \"26.04\",\n                \"last\": \"27.14\",\n                \"vol\": \"50.539\"\n            }\n        },\n        \"filusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"4.286\",\n                \"low\": \"4.172\",\n                \"high\": \"4.367\",\n                \"open\": \"4.261\",\n                \"last\": \"4.26\",\n                \"vol\": \"571.4\"\n            }\n        },\n        \"babydogeusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.000000001336\",\n                \"sell\": \"0.0000000013562\",\n                \"low\": \"0.0000000012527\",\n                \"high\": \"0.0000000013971\",\n                \"open\": \"0.0000000013121\",\n                \"last\": \"0.0000000013467\",\n                \"vol\": \"1770786340856.8766303287737158\"\n            }\n        },\n        \"adausdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.4335\",\n                \"sell\": \"0.4374\",\n                \"low\": \"0.4231\",\n                \"high\": \"0.4436\",\n                \"open\": \"0.4361\",\n                \"last\": \"0.4337\",\n                \"vol\": \"18558.6201167460870794\"\n            }\n        },\n        \"oneusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.01415\",\n                \"sell\": \"0.0143\",\n                \"low\": \"0.01331\",\n                \"high\": \"0.01438\",\n                \"open\": \"0.01344\",\n                \"last\": \"0.01426\",\n                \"vol\": \"133813.63265306\"\n            }\n        },\n        \"bchusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"383.19\",\n                \"sell\": \"387.05\",\n                \"low\": \"363.38\",\n                \"high\": \"510.0\",\n                \"open\": \"383.81\",\n                \"last\": \"387.23\",\n                \"vol\": \"16.9418297401960785\"\n            }\n        },\n        \"xtzusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.792\",\n                \"sell\": \"0.8\",\n                \"low\": \"0.773\",\n                \"high\": \"0.807\",\n                \"open\": \"0.788\",\n                \"last\": \"0.794\",\n                \"vol\": \"24193.2\"\n            }\n        },\n        \"slpusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.002821\",\n                \"sell\": \"0.002845\",\n                \"low\": \"0.002675\",\n                \"high\": \"0.002909\",\n                \"open\": \"0.002748\",\n                \"last\": \"0.002843\",\n                \"vol\": \"3515869.72106187\"\n            }\n        },\n        \"sushiusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.731\",\n                \"sell\": \"0.739\",\n                \"low\": \"0.693\",\n                \"high\": \"0.742\",\n                \"open\": \"0.706\",\n                \"last\": \"0.733\",\n                \"vol\": \"12541.5\"\n            }\n        },\n        \"zilusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.01661\",\n                \"sell\": \"0.01679\",\n                \"low\": \"0.01607\",\n                \"high\": \"0.01686\",\n                \"open\": \"0.01626\",\n                \"last\": \"0.01667\",\n                \"vol\": \"565709.88289818\"\n            }\n        },\n        \"wkdusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0000000057\",\n                \"last\": \"0.0000000057\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"cktusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"flokiusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0001551873\",\n                \"sell\": \"0.000157432\",\n                \"low\": \"0.0001426917\",\n                \"high\": \"0.0001587062\",\n                \"open\": \"0.0001479646\",\n                \"last\": \"0.0001575211\",\n                \"vol\": \"61807660.989105886593819\"\n            }\n        },\n        \"solusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"151.47\",\n                \"sell\": \"152.87\",\n                \"low\": \"140.01\",\n                \"high\": \"159.01\",\n                \"open\": \"146.95\",\n                \"last\": \"152.42\",\n                \"vol\": \"80271.0880702911089649\"\n            }\n        },\n        \"manausdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.3406\",\n                \"sell\": \"0.3441\",\n                \"low\": \"0.3272\",\n                \"high\": \"0.348\",\n                \"open\": \"0.3314\",\n                \"last\": \"0.3418\",\n                \"vol\": \"2430.0\"\n            }\n        },\n        \"ftmusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.488\",\n                \"sell\": \"0.4927\",\n                \"low\": \"0.474\",\n                \"high\": \"0.5018\",\n                \"open\": \"0.4897\",\n                \"last\": \"0.4902\",\n                \"vol\": \"5040.14560326\"\n            }\n        },\n        \"sandusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.3254\",\n                \"sell\": \"0.3287\",\n                \"low\": \"0.3117\",\n                \"high\": \"0.3317\",\n                \"open\": \"0.3174\",\n                \"last\": \"0.3283\",\n                \"vol\": \"17792.10077519\"\n            }\n        },\n        \"apeusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.754\",\n                \"sell\": \"0.7616\",\n                \"low\": \"0.7239\",\n                \"high\": \"0.7733\",\n                \"open\": \"0.7501\",\n                \"last\": \"0.7545\",\n                \"vol\": \"2459.7849135878331669\"\n            }\n        },\n        \"enjusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.1786\",\n                \"sell\": \"0.1803\",\n                \"low\": \"0.1683\",\n                \"high\": \"0.182\",\n                \"open\": \"0.1738\",\n                \"last\": \"0.1787\",\n                \"vol\": \"51497.3\"\n            }\n        },\n        \"lrcusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.154\",\n                \"sell\": \"0.1556\",\n                \"low\": \"0.1473\",\n                \"high\": \"0.1572\",\n                \"open\": \"0.1509\",\n                \"last\": \"0.1542\",\n                \"vol\": \"61092.0\"\n            }\n        },\n        \"cfxusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.1625\",\n                \"sell\": \"0.1643\",\n                \"low\": \"0.148\",\n                \"high\": \"0.1671\",\n                \"open\": \"0.1501\",\n                \"last\": \"0.1648\",\n                \"vol\": \"35392.998202271681279\"\n            }\n        },\n        \"cnhcusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"wldusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"1.8914\",\n                \"sell\": \"1.9106\",\n                \"low\": \"1.7963\",\n                \"high\": \"1.9487\",\n                \"open\": \"1.8425\",\n                \"last\": \"1.9048\",\n                \"vol\": \"894.1110341962411421\"\n            }\n        },\n        \"pepeusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00000948\",\n                \"sell\": \"0.00000957\",\n                \"low\": \"0.00000859\",\n                \"high\": \"0.00000986\",\n                \"open\": \"0.00000909\",\n                \"last\": \"0.0000095\",\n                \"vol\": \"63215948.2\"\n            }\n        },\n        \"memeusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.015049\",\n                \"sell\": \"0.015191\",\n                \"low\": \"0.014481\",\n                \"high\": \"0.015435\",\n                \"open\": \"0.014843\",\n                \"last\": \"0.015194\",\n                \"vol\": \"232181.38722908\"\n            }\n        },\n        \"bonkusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00002417\",\n                \"sell\": \"0.00002441\",\n                \"low\": \"0.00002297\",\n                \"high\": \"0.00002489\",\n                \"open\": \"0.00002384\",\n                \"last\": \"0.00002422\",\n                \"vol\": \"230193134.76521356\"\n            }\n        },\n        \"suiusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.795\",\n                \"sell\": \"0.802\",\n                \"low\": \"0.7741\",\n                \"high\": \"0.7741\",\n                \"open\": \"0.7741\",\n                \"last\": \"0.7741\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"ordiusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"34.088\",\n                \"sell\": \"34.361\",\n                \"low\": \"32.241\",\n                \"high\": \"35.091\",\n                \"open\": \"33.248\",\n                \"last\": \"34.146\",\n                \"vol\": \"300.9\"\n            }\n        },\n        \"ensusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"26.64\",\n                \"sell\": \"26.89\",\n                \"low\": \"25.34\",\n                \"high\": \"27.63\",\n                \"open\": \"25.8\",\n                \"last\": \"26.67\",\n                \"vol\": \"366.36\"\n            }\n        },\n        \"algousdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.1565\",\n                \"sell\": \"0.1581\",\n                \"low\": \"0.1459\",\n                \"high\": \"0.1593\",\n                \"open\": \"0.1487\",\n                \"last\": \"0.1568\",\n                \"vol\": \"59680.4275172342621259\"\n            }\n        },\n        \"arbusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.7308\",\n                \"sell\": \"0.7375\",\n                \"low\": \"0.6973\",\n                \"high\": \"0.7464\",\n                \"open\": \"0.713\",\n                \"last\": \"0.7311\",\n                \"vol\": \"13745.5\"\n            }\n        },\n        \"wifusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"1.7795\",\n                \"sell\": \"1.7994\",\n                \"low\": \"1.6796\",\n                \"high\": \"1.8055\",\n                \"open\": \"1.5889\",\n                \"last\": \"1.8055\",\n                \"vol\": \"586.11741\"\n            }\n        },\n        \"myrousdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.109\",\n                \"sell\": \"0.11066\",\n                \"low\": \"0.10478\",\n                \"high\": \"0.10914\",\n                \"open\": \"0.09857\",\n                \"last\": \"0.10914\",\n                \"vol\": \"452.1050997515523661\"\n            }\n        },\n        \"trumpusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"8.311\",\n                \"sell\": \"8.436\",\n                \"low\": \"7.42\",\n                \"high\": \"10.202\",\n                \"open\": \"9.838\",\n                \"last\": \"7.917\",\n                \"vol\": \"586.58\"\n            }\n        },\n        \"cobusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00000199\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.00000199\",\n                \"high\": \"0.00000199\",\n                \"open\": \"0.00000199\",\n                \"last\": \"0.00000199\",\n                \"vol\": \"5400.0\"\n            }\n        },\n        \"virtualusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.00005254\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"nosusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"2.9626\",\n                \"sell\": \"3.0074\",\n                \"low\": \"2.8341\",\n                \"high\": \"2.8871\",\n                \"open\": \"2.6708\",\n                \"last\": \"2.8871\",\n                \"vol\": \"250.55\"\n            }\n        },\n        \"lptusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"jupusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.848\",\n                \"sell\": \"0.8541\",\n                \"low\": \"0.7511\",\n                \"high\": \"0.7969\",\n                \"open\": \"0.7969\",\n                \"last\": \"0.7969\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"blurusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.1773\",\n                \"sell\": \"0.179\",\n                \"low\": \"0.1808\",\n                \"high\": \"0.1808\",\n                \"open\": \"0.1659\",\n                \"last\": \"0.1808\",\n                \"vol\": \"438.8\"\n            }\n        },\n        \"katausdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00053459\",\n                \"sell\": \"0.00054478\",\n                \"low\": \"0.00054022\",\n                \"high\": \"0.00054853\",\n                \"open\": \"0.0005429\",\n                \"last\": \"0.00054775\",\n                \"vol\": \"1211202.23525448\"\n            }\n        },\n        \"opusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"nakausdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"icpusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"kasusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"coqusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.000001546\",\n                \"sell\": \"0.00000157\",\n                \"low\": \"0.000001455\",\n                \"high\": \"0.000001607\",\n                \"open\": \"0.000001464\",\n                \"last\": \"0.000001546\",\n                \"vol\": \"97037450.418514188\"\n            }\n        },\n        \"jtousdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"wassieusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00000325\",\n                \"sell\": \"0.0000036\",\n                \"low\": \"0.00000307\",\n                \"high\": \"0.00000423\",\n                \"open\": \"0.0000033\",\n                \"last\": \"0.00000325\",\n                \"vol\": \"106550287.102111279929078\"\n            }\n        },\n        \"fetusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"1.2986\",\n                \"sell\": \"1.3109\",\n                \"low\": \"1.1772\",\n                \"high\": \"1.3245\",\n                \"open\": \"1.2159\",\n                \"last\": \"1.3014\",\n                \"vol\": \"16922.0\"\n            }\n        },\n        \"nearusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"5.584\",\n                \"sell\": \"5.637\",\n                \"low\": \"5.243\",\n                \"high\": \"5.321\",\n                \"open\": \"5.102\",\n                \"last\": \"5.271\",\n                \"vol\": \"2.29284908\"\n            }\n        },\n        \"aiusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.589\",\n                \"sell\": \"0.596\",\n                \"low\": \"0.531\",\n                \"high\": \"0.589\",\n                \"open\": \"0.538\",\n                \"last\": \"0.589\",\n                \"vol\": \"39.63170986\"\n            }\n        },\n        \"bobusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00003274\",\n                \"sell\": \"0.00003341\",\n                \"low\": \"0.00003081\",\n                \"high\": \"0.00003081\",\n                \"open\": \"0.00002914\",\n                \"last\": \"0.00003081\",\n                \"vol\": \"9082.53\"\n            }\n        },\n        \"slerfusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.1953\",\n                \"sell\": \"0.1983\",\n                \"low\": \"0.1967\",\n                \"high\": \"0.1967\",\n                \"open\": \"0.1965\",\n                \"last\": \"0.1967\",\n                \"vol\": \"2.27452974\"\n            }\n        },\n        \"bomeusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.00792\",\n                \"sell\": \"0.008072\",\n                \"low\": \"0.007746\",\n                \"high\": \"0.008256\",\n                \"open\": \"0.007764\",\n                \"last\": \"0.00809\",\n                \"vol\": \"1546.88036821\"\n            }\n        },\n        \"stxusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"1.8736\",\n                \"sell\": \"1.8926\",\n                \"low\": \"1.8053\",\n                \"high\": \"1.8053\",\n                \"open\": \"1.6794\",\n                \"last\": \"1.8053\",\n                \"vol\": \"302.89\"\n            }\n        },\n        \"tonusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"7.48\",\n                \"sell\": \"7.4975\",\n                \"low\": \"4.4\",\n                \"high\": \"7.5726\",\n                \"open\": \"7.3435\",\n                \"last\": \"7.5001\",\n                \"vol\": \"192.2694003053529994\"\n            }\n        },\n        \"rndrusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"6.5431\",\n                \"sell\": \"6.6089\",\n                \"low\": \"6.3339\",\n                \"high\": \"6.6482\",\n                \"open\": \"6.0579\",\n                \"last\": \"6.6482\",\n                \"vol\": \"41.101186544243515\"\n            }\n        },\n        \"mogusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0000020604\",\n                \"sell\": \"0.0000021224\",\n                \"low\": \"0.000001759\",\n                \"high\": \"0.0000022043\",\n                \"open\": \"0.0000018335\",\n                \"last\": \"0.0000021316\",\n                \"vol\": \"222591350.4032839135557957\"\n            }\n        },\n        \"injusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"21.82\",\n                \"sell\": \"21.992\",\n                \"low\": \"20.227\",\n                \"high\": \"20.403\",\n                \"open\": \"20.255\",\n                \"last\": \"20.403\",\n                \"vol\": \"0.0155\"\n            }\n        },\n        \"reachusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.02749\",\n                \"sell\": \"0.02777\",\n                \"low\": \"0.02565\",\n                \"high\": \"0.02985\",\n                \"open\": \"0.02742\",\n                \"last\": \"0.02742\",\n                \"vol\": \"24807.0656732\"\n            }\n        },\n        \"mntusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.7444\",\n                \"sell\": \"0.752\",\n                \"low\": \"0.7132\",\n                \"high\": \"0.7212\",\n                \"open\": \"0.6939\",\n                \"last\": \"0.7132\",\n                \"vol\": \"6.86695662\"\n            }\n        },\n        \"beamusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.016308\",\n                \"sell\": \"0.016462\",\n                \"low\": \"0.013939\",\n                \"high\": \"0.014613\",\n                \"open\": \"0.014613\",\n                \"last\": \"0.014613\",\n                \"vol\": \"0.0\"\n            }\n        },\n        \"strkusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.6071\",\n                \"sell\": \"0.6133\",\n                \"low\": \"0.5992\",\n                \"high\": \"0.6001\",\n                \"open\": \"0.5917\",\n                \"last\": \"0.5992\",\n                \"vol\": \"2602.55\"\n            }\n        },\n        \"nochillusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.002774\",\n                \"sell\": \"0.002888\",\n                \"low\": \"0.002426\",\n                \"high\": \"0.003455\",\n                \"open\": \"0.002236\",\n                \"last\": \"0.00259\",\n                \"vol\": \"417664.3984514\"\n            }\n        },\n        \"mewusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.003456\",\n                \"sell\": \"0.003482\",\n                \"low\": \"0.003227\",\n                \"high\": \"0.003536\",\n                \"open\": \"0.003288\",\n                \"last\": \"0.003487\",\n                \"vol\": \"8252.05735154\"\n            }\n        },\n        \"gnousdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"276.6\",\n                \"sell\": \"278.2\",\n                \"low\": \"258.3\",\n                \"high\": \"262.2\",\n                \"open\": \"258.3\",\n                \"last\": \"258.3\",\n                \"vol\": \"1.49\"\n            }\n        },\n        \"wavesusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.962\",\n                \"sell\": \"0.973\",\n                \"low\": \"0.941\",\n                \"high\": \"0.948\",\n                \"open\": \"0.941\",\n                \"last\": \"0.941\",\n                \"vol\": \"689.46\"\n            }\n        },\n        \"xyousdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.006229\",\n                \"sell\": \"0.006293\",\n                \"low\": \"0.00555\",\n                \"high\": \"0.006477\",\n                \"open\": \"0.005795\",\n                \"last\": \"0.006263\",\n                \"vol\": \"1391097.27977626\"\n            }\n        },\n        \"asiusdt\": {\n            \"at\": 1721037506,\n            \"ticker\": {\n                \"buy\": \"0.0\",\n                \"sell\": \"0.0\",\n                \"low\": \"0.0\",\n                \"high\": \"0.0\",\n                \"open\": \"0.0\",\n                \"last\": \"0.0\",\n                \"vol\": \"0.0\"\n            }\n        }\n    }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Wallets",
+							"item": [
+								{
+									"name": "Generate Payment Address",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}"
+											},
+											{
+												"key": "Authorization",
+												"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/wallets/xrp/addresses/ripple",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"wallets",
+												"xrp",
+												"addresses",
+												"ripple"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User Wallet",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/wallets/usdc",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"wallets",
+												"usdc"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User Wallets",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/wallets",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"wallets"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User Payment Address",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/wallets/trx/address",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"wallets",
+												"trx",
+												"address"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get User Payment Addresses",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/wallets/btc/addresses",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"wallets",
+												"btc",
+												"addresses"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"description": "These are only used for feature purposes, like fetching supported deposit addresses and and if withdrawable etc,"
+						},
+						{
+							"name": "Withidraw",
+							"item": [
+								{
+									"name": "Get Withdraw Details",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/quidax/withdraws/bpmok2wn",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"quidax",
+												"withdraws",
+												"bpmok2wn"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Fees",
+							"item": [
+								{
+									"name": "Create Fee",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"feeType\":\"withdrawal\",\r\n    \"currency\": \"usdc\",\r\n    \"percentageFee\": 0.25\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/admin/fees",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"admin",
+												"fees"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Fee",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n     \"percentageFee\": 0.55\r\n     /* \"ranges\" : [{\r\n        \"minAmount\" : 0.1,\r\n        \"maxAmount\" : 0.5,\r\n        \"percentageFee\": 0.03\r\n     },{\r\n        \"minAmount\" : 0.6,\r\n        \"maxAmount\" : 1.0000000000001,\r\n        \"percentageFee\": 0.05\r\n     }] */\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/fees/66c33e90b985caca47022714",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"fees",
+												"66c33e90b985caca47022714"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Fees",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/admin/fees",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"admin",
+												"fees"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Currency Fees",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/admin/fees/usdc",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"admin",
+												"fees",
+												"usdc"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Settings",
+							"item": [
+								{
+									"name": "Update Currency Or Add",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"crypto\": {\r\n        \"currency\": \"USDC\",\r\n        \"minimumWithdrawal\":1,\r\n        \"minimumDeposit\": 1,\r\n        \"minimumSell\": 1,\r\n        \"minimumSwap\": 1,\r\n        \"isLive\": true\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/admin/settings/cryptos/add-or-update",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"cryptos",
+												"add-or-update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Updated Supported Currency",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"cryptos\": [\r\n        {\r\n            \"currency\": \"USDT\",\r\n            \"minimumWithdrawal\": 5,\r\n            \"minimumDeposit\": 1,\r\n            \"minimumSell\": 1,\r\n            \"minimumSwap\":0.005,\r\n            \"isLive\": true\r\n        },\r\n        {\r\n            \"currency\": \"TRX\",\r\n            \"minimumWithdrawal\": 1,\r\n            \"minimumDeposit\": 1,\r\n            \"minimumSell\": 1,\r\n            \"minimumSwap\":0.005,\r\n            \"isLive\": true\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/cryptos/add-multiple",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"cryptos",
+												"add-multiple"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Updated Rates",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"rates\":[{\r\n        \"minAmount\":0.00,\r\n        \"maxAmount\":99.99,\r\n        \"value\" :60\r\n    }, {\r\n        \"minAmount\":100.00,\r\n        \"maxAmount\":199.99,\r\n        \"value\" :50\r\n    },{\r\n        \"minAmount\":200.00,\r\n        \"maxAmount\":5000.99,\r\n        \"value\" :40\r\n    }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/rates",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"rates"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Updated Sell Conditions",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"conditions\":[{\r\n        \"minAmount\":500,\r\n        \"maxAmount\":50000,\r\n        \"isAutomatic\" :false\r\n    }, {\r\n        \"minAmount\":50001,\r\n        \"maxAmount\":500000,\r\n        \"isAutomatic\" :false\r\n    }]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/sell-conditions",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"sell-conditions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Updated Withdrawal Conditions Copy",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"conditions\":[{\r\n        \"minAmount\":500,\r\n        \"maxAmount\":50000,\r\n        \"isAutomatic\" :false\r\n    }, {\r\n        \"minAmount\":50001,\r\n        \"maxAmount\":500000,\r\n        \"isAutomatic\" :false\r\n    }]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/withdrawal-conditions",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"withdrawal-conditions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Updated Charges",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"charges\": [\r\n    {\r\n      \"minAmount\": 0,\r\n      \"maxAmount\": 14.99,\r\n      \"value\": 10\r\n    },\r\n    {\r\n      \"minAmount\": 15.00,\r\n      \"maxAmount\": 19.99,\r\n      \"value\": 7\r\n    },\r\n    {\r\n      \"minAmount\": 20.00,\r\n      \"maxAmount\": 49.99,\r\n      \"value\": 5.5\r\n    },\r\n    {\r\n      \"minAmount\": 50.00,\r\n      \"maxAmount\": 99.99,\r\n      \"value\": 4.25\r\n    },\r\n    {\r\n      \"minAmount\": 100.00,\r\n      \"maxAmount\": 199.99,\r\n      \"value\": 3.875\r\n    },\r\n    {\r\n      \"minAmount\": 200.00,\r\n      \"maxAmount\": 499.99,\r\n      \"value\": 3.5\r\n    },\r\n    {\r\n      \"minAmount\": 500.00,\r\n      \"maxAmount\": 999.99,\r\n      \"value\": 2.75\r\n    },\r\n    {\r\n      \"minAmount\": 1000.00,\r\n      \"maxAmount\": 1999.99,\r\n      \"value\": 2.375\r\n    },\r\n    {\r\n      \"minAmount\": 2000.00,\r\n      \"maxAmount\": 4999.99,\r\n      \"value\": 2\r\n    },\r\n    {\r\n      \"minAmount\": 5000.00,\r\n      \"maxAmount\": 499999.99,\r\n      \"value\": 1.5\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/charges",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"charges"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload Slider Image",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/C:/Users/STARCODE/Downloads/5.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/sliders/image",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"sliders",
+												"image"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload Avatar Image",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/C:/Users/STARCODE/Documents/profile_avatars/profile_avatars/pf12.png"
+												},
+												{
+													"key": "name",
+													"value": "pf12",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/image/avatars",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"image",
+												"avatars"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Slider Image",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/C:/Users/STARCODE/Pictures/Camera Roll/ID_Photo.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/admin/settings/image/utpfusejziqqdznhomgb",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												"image",
+												"utpfusejziqqdznhomgb"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Wallets",
+							"item": [
+								{
+									"name": "Withdraw Internal",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"amount\": 1,\n\t// \"userId\": \"me\", use me if transfering from parent account, but use id if transfering from sub account, you have to use parent account id\n    \"userId\":\"me\",\n\t\"fundUid\":\"recjwg7e\",\n\t\"currency\":\"trx\",\n\t\"network\":\"trc20\",\n\t\"narration\": \"admin-withdraw-internal\",\n\t\"transactionNote\":\"Manual withdraw\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/admin/withdraw/crypto/internal",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"admin",
+												"withdraw",
+												"crypto",
+												"internal"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Users",
+							"item": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Wallets",
+							"item": [
+								{
+									"name": "Depecrated",
+									"item": [
+										{
+											"name": "Generate Address",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"followRedirects": true,
+												"disableUrlEncoding": false,
+												"disableCookies": false
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "User-Agent",
+														"value": "insomnium/0.2.3-a"
+													},
+													{
+														"key": "x-id-key",
+														"value": "{{x_id_key}}"
+													},
+													{
+														"key": "Authorization",
+														"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{url}}/user/wallets/btc/addresses/btc",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"user",
+														"wallets",
+														"btc",
+														"addresses",
+														"btc"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get Deposit Addresses",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"followRedirects": true,
+												"disableUrlEncoding": false,
+												"disableCookies": false
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "BIqMhjqchVtVLxdew4b9xuUXmhjx56uu5GZ12p1L",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "User-Agent",
+														"value": "insomnium/0.2.3-a"
+													},
+													{
+														"key": "x-id-key",
+														"value": "{{x_id_key}}"
+													}
+												],
+												"url": {
+													"raw": "{{test_url}}/user/wallets/btc/addresses",
+													"host": [
+														"{{test_url}}"
+													],
+													"path": [
+														"user",
+														"wallets",
+														"btc",
+														"addresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get Deposit Address",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"followRedirects": true,
+												"disableUrlEncoding": false,
+												"disableCookies": false
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "User-Agent",
+														"value": "insomnium/0.2.3-a"
+													},
+													{
+														"key": "x-id-key",
+														"value": "{{x_id_key}}"
+													},
+													{
+														"key": "Authorization",
+														"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{test_url}}/user/wallets/trx/addresses",
+													"host": [
+														"{{test_url}}"
+													],
+													"path": [
+														"user",
+														"wallets",
+														"trx",
+														"addresses"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Get User Wallets",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												},
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"protocolProfileBehavior": {
+												"followRedirects": true,
+												"disableUrlEncoding": false,
+												"disableCookies": false
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "",
+															"type": "string"
+														}
+													]
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "User-Agent",
+														"value": "insomnium/0.2.3-a"
+													},
+													{
+														"key": "x-id-key",
+														"value": "{{x_id_key}}"
+													},
+													{
+														"key": "Authorization",
+														"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{test_url}}/user/wallets/trx",
+													"host": [
+														"{{test_url}}"
+													],
+													"path": [
+														"user",
+														"wallets",
+														"trx"
+													]
+												}
+											},
+											"response": []
+										}
+									],
+									"description": "These endpoints have been depecrated, as it is reduredundant saving payment addreses, as quidax has a sufficient stores for them, and have now been moved to quidax request folders."
+								},
+								{
+									"name": "Withdraw Crypto",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"amount\": 0.0001,\n\t\"fundUid\":\"TBVvZh5WfGAdjA1untqFMRHtQcDkSLtQ36\",\n    \"otp\":\"33196\",\n    \"action\":\"withdraw\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/user/withdraw/crypto/trx/trc20",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"user",
+												"withdraw",
+												"crypto",
+												"trx",
+												"trc20"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Withdraw Fiat",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"amount\": 500\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/user/withdraw",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"user",
+												"withdraw"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Sell Crypto",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "nKziUmFkUIKT9nxFXOlpq",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"amount\": 0.01\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/user/wallets/trx/sell",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"wallets",
+												"trx",
+												"sell"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Withdraw Internal",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"amount\": 1.425,\n\t// \"userId\": \"me\", use me if transfering from parent account, but use id if transfering from sub account, you habr to use parent account id\n    \"userId\":\"me\",\n\t\"fundUid\":\"recjwg7e\",\n\t\"currency\":\"trx\",\n\t\"network\":\"trc20\",\n\t\"narration\": \"admin-withdraw-internal\",\n\t\"transactionNote\":\"Manual withdraw\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/user/withdraw/crypto/internal",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"withdraw",
+												"crypto",
+												"internal"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Maximun Withdrawable",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{test_url}}/user/withdraw/crypto/trx/trc20/fee/max",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"withdraw",
+												"crypto",
+												"trx",
+												"trc20",
+												"fee",
+												"max"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Withdrawa Fee",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"amount\": 12\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/user/withdraw/crypto/trx/trc20/fee",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"withdraw",
+												"crypto",
+												"trx",
+												"trc20",
+												"fee"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Swap",
+							"item": [
+								{
+									"name": "Create Swap",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"fromCurrency\" :\"btc\", \n\t\"toCurrency\": \"trx\",\n\t\"fromAmount\": 0.00000003\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/user/swap_quotation",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"swap_quotation"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Refresh Swap",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"fromCurrency\" :\"usdt\", \n\t\"toCurrency\": \"trx\",\n\t\"fromAmount\": 0.16449\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/user/swap_quotation/k2thgdap/refresh",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"swap_quotation",
+												"k2thgdap",
+												"refresh"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Confirm Swap",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"protocolProfileBehavior": {
+										"followRedirects": true,
+										"disableUrlEncoding": false,
+										"disableCookies": false
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "User-Agent",
+												"value": "insomnium/0.2.3-a"
+											},
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{test_url}}/user/swap_quotation/k2thgdap/confirm",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"swap_quotation",
+												"k2thgdap",
+												"confirm"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "KYC",
+							"item": [
+								{
+									"name": "Webhook Test",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"DOB\": \"1991-06-16\",\r\n    \"Photo\": \"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\",\r\n    \"Gender\": \"Male\",\r\n    \"IDType\": \"BVN\",\r\n    \"Source\": \"Async ID API\",\r\n    \"Actions\": {\r\n        \"Verify_ID_Number\": \"Verified\",\r\n        \"Return_Personal_Info\": \"Returned\"\r\n    },\r\n    \"Address\": \"7 PECULIAR ESTATE, Ikorodu, Lagos State\",\r\n    \"Country\": \"NG\",\r\n    \"Document\": \"Not Available\",\r\n    \"FullData\": {\r\n        \"BVN\": \"22428638193\",\r\n        \"nin\": \"\",\r\n        \"email\": \"murphybiola_007@yahoo.com\",\r\n        \"title\": \"Mr\",\r\n        \"Gender\": \"Male\",\r\n        \"message\": \"Result Found\",\r\n        \"success\": true,\r\n        \"LastName\": \"Bakare\",\r\n        \"FirstName\": \"Abiola\",\r\n        \"MiddleName\": \"Moruf\",\r\n        \"nameOnCard\": \"BAKARE ABIOLA MORUF\",\r\n        \"DateOfBirth\": \"1991-06-16\",\r\n        \"ImageBase64\": \"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\",\r\n        \"lgaOfOrigin\": \"Ijebu North\",\r\n        \"nationality\": \"Nigeria\",\r\n        \"watchListed\": \"NO\",\r\n        \"PhoneNumber1\": \"08184991004\",\r\n        \"PhoneNumber2\": \"\",\r\n        \"maritalStatus\": \"Single\",\r\n        \"stateOfOrigin\": \"Ogun State\",\r\n        \"LevelOfAccount\": \"Level 1 - Low Level Accounts\",\r\n        \"enrollmentBank\": \"044\",\r\n        \"lgaOfResidence\": \"Ikorodu\",\r\n        \"enrollmentBranch\": \"IKORODU 83 LAGOS ROAD\",\r\n        \"registrationDate\": \"2017-03-20\",\r\n        \"stateOfResidence\": \"Lagos State\",\r\n        \"residentialAddress\": \"7 PECULIAR ESTATE\"\r\n    },\r\n    \"FullName\": \"Abiola Moruf Bakare\",\r\n    \"IDNumber\": \"22428638193\",\r\n    \"ResultCode\": \"1012\",\r\n    \"ResultText\": \"ID Number Validated\",\r\n    \"ResultType\": \"ID Verification\",\r\n    \"SmileJobID\": \"0000000044\",\r\n    \"PhoneNumber\": \"08184991004\",\r\n    \"IssuanceDate\": \"2017-03-20\",\r\n    \"PhoneNumber2\": \"Not Available\",\r\n    \"IsFinalResult\": \"true\",\r\n    \"PartnerParams\": {\r\n        \"job_id\": \"66b232bb04c6ea2a8bad4eca\",\r\n        \"user_id\": \"667d81d77ba9f9e94e403770\",\r\n        \"job_type\": 5\r\n    },\r\n    \"ExpirationDate\": \"Not Available\",\r\n    \"Secondary_ID_Number\": \"Not Available\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/webhook/smileid",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"webhook",
+												"smileid"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Verified Job Status",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": " {\r\n  \"return_history\": false , // <true | false> Set to true to return results of all jobs you have ran for the user in addition to current job result. You must set return_job_status to true to use this flag.\r\n  \"return_image_links\": true, //  <true | false> Set to true to receive selfie and liveness images you uploaded. You must set return_job_status to true to use this flag.\r\n   \"signature\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/user/kyc/verified/NIN_V2/status",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"user",
+												"kyc",
+												"verified",
+												"NIN_V2",
+												"status"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Verified KYCs",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}/user/kyc/verified",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"user",
+												"kyc",
+												"verified"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Verified KYC",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": " {\r\n  \"return_history\": false , // <true | false> Set to true to return results of all jobs you have ran for the user in addition to current job result. You must set return_job_status to true to use this flag.\r\n  \"return_image_links\": false //  <true | false> Set to true to receive selfie and liveness images you uploaded. You must set return_job_status to true to use this flag.\r\n  // signature: true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/user/kyc/verified/VOTER_ID",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"user",
+												"kyc",
+												"verified",
+												"VOTER_ID"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Verify KYC",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "{{x_id_key}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"idType\":\"BVN\",\r\n    \"idNumber\":\"22428638193\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/user/kyc/verify",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"user",
+												"kyc",
+												"verify"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Verify KYC Upload",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-id-key",
+												"value": "U3ls_MkVpynShHUi4I38e",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/Users/mac/Downloads/Snapchat-562922614.jpg"
+												},
+												{
+													"key": "idType",
+													"value": "NIN_V2",
+													"type": "text"
+												},
+												{
+													"key": "idNumber",
+													"value": "20913971737",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{test_url}}/user/kyc/verify/upload",
+											"host": [
+												"{{test_url}}"
+											],
+											"path": [
+												"user",
+												"kyc",
+												"verify",
+												"upload"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "User Transactions By Type Currency With Parent",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "rrExW98wFoiiU-Bg_YZ7d",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{test_url}}/user/transactionsv2/crypto/currency/trx?page=1&limit=10",
+									"host": [
+										"{{test_url}}"
+									],
+									"path": [
+										"user",
+										"transactionsv2",
+										"crypto",
+										"currency",
+										"trx"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Transaction By Id With Parent",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/user/transactionsv2/crypto/66965b2cf41313795be85b4a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"transactionsv2",
+										"crypto",
+										"66965b2cf41313795be85b4a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Transactions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/user/transactionsv2?page=1&limit=10&type=crypto",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"transactionsv2"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "type",
+											"value": "crypto"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add account",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bank\": \"Kuda Bank\",\r\n    \"bankId\": \"0606\",\r\n    \"accountNumber\": \"8139259998\",\r\n    \"accountName\": \"FAVOUR CHUKWUMERIJE EBOH\",\r\n    \"default\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/accounts",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"accounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set User Avatar",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/users/avatars/66d1f68d22a6e6e02e51ebbc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"avatars",
+										"66d1f68d22a6e6e02e51ebbc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Request OTP",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"action\" :\"withdraw\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/request-otp",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"request-otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify OTP",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"otp\":10996\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/verify-otp",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"verify-otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Code",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"code\":\"79008\",\r\n   \"email\":\"iamstarcode11@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/verify-code",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"verify-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Request Verification Email",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" :\"iamstarcode11@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/request-verification",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"request-verification"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Settings",
+					"item": [
+						{
+							"name": "Get Cryptos Settings",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "U3ls_MkVpynShHUi4I38e",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{test_url}}/settings/cryptos",
+									"host": [
+										"{{test_url}}"
+									],
+									"path": [
+										"settings",
+										"cryptos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Crypto Settings",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "U3ls_MkVpynShHUi4I38e",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{test_url}}/settings/cryptos/usdc",
+									"host": [
+										"{{test_url}}"
+									],
+									"path": [
+										"settings",
+										"cryptos",
+										"usdc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Sell Conditions",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/settings/sell-conditions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"settings",
+										"sell-conditions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Withdrawal Conditions",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/settings/withdrawal-conditions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"settings",
+										"withdrawal-conditions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Rates",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/settings/rates",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"settings",
+										"rates"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Slider Images",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/settings/slider-images",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"settings",
+										"slider-images"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Avatars",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{test_url}}/settings/avatars",
+									"host": [
+										"{{test_url}}"
+									],
+									"path": [
+										"settings",
+										"avatars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Avatar",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-id-key",
+										"value": "{{x_id_key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{test_url}}/settings/avatars/66d55b740da1f662d30b4d77",
+									"host": [
+										"{{test_url}}"
+									],
+									"path": [
+										"settings",
+										"avatars",
+										"66d55b740da1f662d30b4d77"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET WITHDRW FEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BIqMhjqchVtVLxdew4b9xuUXmhjx56uu5GZ12p1L",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "insomnium/0.2.3-a"
+							},
+							{
+								"key": "x-id-key",
+								"value": "{{ _.x_id_key }}"
+							}
+						],
+						"url": {
+							"raw": "{{test_url}}/fee/trx/trc20",
+							"host": [
+								"{{test_url}}"
+							],
+							"path": [
+								"fee",
+								"trx",
+								"trc20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-id-key",
+								"value": "{{x_id_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{test_url}}/user/gift-cards",
+							"host": [
+								"{{test_url}}"
+							],
+							"path": [
+								"user",
+								"gift-cards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3001/api/v1"
+		},
+		{
+			"key": "test_url",
+			"value": "https://test-api.kwiq.app/api/v1"
+		},
+		{
+			"key": "live_url",
+			"value": "https://api.kwiq.app/api/v1"
+		},
+		{
+			"key": "x_id_key",
+			"value": "npbczbdMUkSR_dZOaa5O1"
+		},
+		{
+			"key": "auth_key",
+			"value": "f001718b98882791eb8829139fe277a59fa845ded3bf2302c14d7940f9c542374ed3312f1deb36524506e9bcf1643fe2b9274cf6b45298e519dfaf424def89e8"
+		}
+	]
+}
