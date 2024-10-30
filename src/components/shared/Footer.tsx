@@ -20,6 +20,14 @@ const Footer = () => {
     }
   ];
 
+
+  const links = {
+    twitter: 'https://x.com/KwiqNg?t=bVT-EaymmNx8pTGW7oSP5w&s=09',
+    instagram: "https://www.instagram.com/kwiq.app?igsh=MW85M2N0MnJ6aHNtcA==",
+    linkedin: "https://ng.linkedin.com/company/kwiq",
+    facebook: "https://ng.linkedin.com/company/kwiq"
+  }
+
   return (
     <footer className="text-gray-800 py-12 px-4 sm:px-20">
       <div className=" mx-auto">
@@ -47,16 +55,16 @@ const Footer = () => {
           <p>© 2023 Kwiq by <span className="text-primary">Kingcards</span>. All Rights Reserved.</p>
           <div className="flex mt-4 md:mt-0">
             {/* Replace with actual social media icons */}
-            <a href="#" className="mx-2">
+            <a target="_blank" href={links.twitter} className="mx-2">
               <BsTwitterX/>
             </a>
-            <a href="#" className="mx-2">
+            <a target="_blank" href={links.instagram} className="mx-2">
               <BsInstagram/>
             </a>
-            <a href="#" className="mx-2">
+            <a target="_blank" href={links.linkedin} className="mx-2">
               <BsLinkedin/>
             </a>
-            <a href="#" className="mx-2">
+            <a target="_blank" href={links.facebook} className="mx-2">
               <BsFacebook/>
             </a>
           </div>

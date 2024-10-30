@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     rating: 4,
-    text: "I had been looking for where to sell BNB, and a friend referred me to KWIQ. I had the coins for about a month and I traded it so easily. Now I do free P2P for them cos they deserve it!",
+    text: "I had been looking for where to sell BNB, and a friend referred me to KWIQ. I had the coins for about a month and I traded it so easily. Now I do free promo for them cos they deserve it!",
     name: "Olumide T",
     type: "Playstore Review",
     image: "/assets/images/testimonials/image-1.png",

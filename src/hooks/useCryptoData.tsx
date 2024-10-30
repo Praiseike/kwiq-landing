@@ -53,7 +53,7 @@ const useCryptoData = () => {
     updatePrices();
     const interval = setInterval(() => {
       updatePrices();
-    }, 2000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);

@@ -20,7 +20,7 @@ function BenefitCard({ icon, title, content }: any) {
 function Benefits() {
 
   const benefits = [
-    { icon: '/assets/icons/wallet.svg', title: "50+ Crypto Wallets", content: "KWIQ provides all its users with more than fifty different wallets to deposit, buy, sell, store, swap and send crypto instantly." },
+    { icon: '/assets/icons/wallet.svg', title: "20+ Crypto Wallets", content: "KWIQ provides all its users with more than fifty different wallets to deposit, buy, sell, store, swap and send crypto instantly." },
     { icon: '/assets/icons/dollar.svg', title: "No hidden fees", content: "Make maximum profits when you trade with us. Swaps from crypto to naira have zero fees while crypto to crypto swaps attract a 2% fee." },
     { icon: '/assets/icons/rates.svg', title: "Unbeatable rates", content: "We know every exchange says they have the best rates, let us show you. You lose money whenever you don't trade with us." }
   ];

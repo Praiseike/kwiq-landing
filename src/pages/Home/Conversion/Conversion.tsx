@@ -4,6 +4,7 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
 import { useEffect, useState } from "react";
 import useCryptoData, { CoinProps } from "../../../hooks/useCryptoData";
+import useCurrencyRate from "../../../hooks/useCurrencyRate";
 
 function Conversion() {
   return (
@@ -24,53 +25,35 @@ const currencies = [
   {
     name: "NGN",
     symbol: "₦",
-    rate: 1615, // 1 USD ≈ 1615 NGN
   },
   {
     name: "USD",
     symbol: "$",
-    rate: 1, // 1 USD = 1 USD
-  },
-  {
-    name: "KES",
-    symbol: "KSh",
-    rate: 146, // 1 USD ≈ 146 KES
-  },
-  {
-    name: "GHS",
-    symbol: "₵",
-    rate: 70, // 1 USD ≈ 70 GHS
   },
 ];
 
-interface CurrencyProps {
-  name: string;
-  rate: number;
-  symbol: string;
-}
-
 const CryptoConverter = () => {
   const coins = useCryptoData();
-
   const [coin, setCoin] = useState<CoinProps | null>(null);
-  const [currency, setCurrency] = useState<CurrencyProps>(currencies[0]);
+  const [currency, setCurrency] = useState(currencies[0]);
   const [coinAmount, setCoinAmount] = useState<string>("");
   const [price, setPrice] = useState<number | null>(null);
+
+  const currencyRate = useCurrencyRate(currency.name);
 
   useEffect(() => {
     if (!coin?.price) setCoin(coins[0]);
   }, [coins]);
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAmountChange = (e: any) => {
     const value = e.target.value;
     const numericValue = value.replace(/\D/g, "");
     setCoinAmount(numericValue);
   };
 
   const handleConvert = () => {
-    console.log(coin);
-    if (coin && coin.price && currency) {
-      const newPrice = Number(coinAmount) * coin.price * currency.rate;
+    if (coin && coin.price && currencyRate) {
+      const newPrice = Number(coinAmount) * coin.price * currencyRate;
       setPrice(newPrice);
     }
   };
@@ -85,7 +68,7 @@ const CryptoConverter = () => {
         />
         <span className="font-semibold">
           $1 = {currency.symbol}
-          {currency.rate}
+          {currencyRate ?? "..."}
         </span>
       </div>
 
@@ -119,7 +102,7 @@ const CryptoConverter = () => {
           }
           transition
         >
-          {coins.map((coin: CoinProps, index: number) => (
+          {coins.map((coin, index) => (
             <MenuItem onClick={() => setCoin(coin)} key={index}>
               {coin.name}
             </MenuItem>
@@ -127,6 +110,7 @@ const CryptoConverter = () => {
         </Menu>
         <input
           type="number"
+          disabled={!currencyRate}
           value={coinAmount ?? ""}
           onChange={handleAmountChange}
           className="w-full p-2 bg-gray-100 rounded-md"
@@ -161,7 +145,7 @@ const CryptoConverter = () => {
             </button>
           }
         >
-          {currencies.map((currency: CurrencyProps, index: number) => (
+          {currencies.map((currency, index) => (
             <MenuItem onClick={() => setCurrency(currency)} key={index}>
               {currency.name}
             </MenuItem>
