@@ -38,7 +38,7 @@ const HowItWorks = () => {
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h3>
           <p className="text-gray-600 ext-[500]">
-            Don't hesitate to reach out to us if you have trouble<br className="hidden sm:block"/>
+            Don't hesitate to reach out to us if you have trouble <br className="hidden sm:block"/>
             downloading the app or signing up
           </p>
           <div className="flex items-center gap-x-4 mt-5 mx-auto w-full sm:w-fit">
