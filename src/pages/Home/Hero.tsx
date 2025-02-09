@@ -18,7 +18,7 @@ export default function Hero() {
                 <img src="/assets/images/google-button.svg" className="h-12" />
               </button>
             </Link>
-            <Link to="#">
+            <Link to={links.store.apple}>
               <button>
                 <img src="/assets/images/apple-button.png" className="h-12" />
               </button>
