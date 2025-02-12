@@ -1,10 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { links } from "../../../constants/links";
 import { trackTwitterEvent } from "../../../utils/twitterEvents";
 import "./style.css";
 
 const CryptoPromoSection = () => {
-  const navigate = useNavigate();
+
   const downloadClick = (link: string) => {
     trackTwitterEvent("tw-ojgmg-p42c5", {
       contents: [
