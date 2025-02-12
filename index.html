@@ -1,10 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/icons/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kwiq</title>
+
+    <!-- Snap Pixel Code -->
+    <script type="text/javascript">
+      (function (e, t, n) {
+        if (e.snaptr) return;
+        var a = (e.snaptr = function () {
+          a.handleRequest
+            ? a.handleRequest.apply(a, arguments)
+            : a.queue.push(arguments);
+        });
+        a.queue = [];
+        var s = "script";
+        r = t.createElement(s);
+        r.async = !0;
+        r.src = n;
+        var u = t.getElementsByTagName(s)[0];
+        u.parentNode.insertBefore(r, u);
+      })(window, document, "https://sc-static.net/scevent.min.js");
+      snaptr("init", "5916a9e5-84d0-43f0-b1ac-d023fb8550c4", {});
+      snaptr("track", "PAGE_VIEW");
+    </script>
+    <!-- End Snap Pixel Code -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1496756667651831");
+      fbq("track", "PageView");
+    </script>
+
+    <!-- End Meta Pixel Code -->
   </head>
   <body>
     <div id="root"></div>
