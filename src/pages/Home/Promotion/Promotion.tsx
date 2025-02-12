@@ -34,7 +34,7 @@ const CryptoPromoSection = () => {
       phone_number: null, 
     });
 
-    navigate(link);
+    window.open(link,"_blank");
   };
 
   return (
