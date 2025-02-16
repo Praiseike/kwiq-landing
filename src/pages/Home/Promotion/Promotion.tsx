@@ -11,7 +11,7 @@ const CryptoPromoSection = () => {
               Start selling your crypto <br className="sm:block hidden" /> on KWIQ app today
             </h2>
             <p className="sm:text-lg mb-8">
-              Download the KWIQ app today and start selling your <br className="sm:block hidden" />crypto in less than 5 minutes
+              Download the KWIQ app today and start selling your <br className="sm:block hidden" />crypto in less than 5 minutes.
             </p>
             <div className="flex space-x-4">
               
